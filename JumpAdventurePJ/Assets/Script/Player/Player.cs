@@ -18,6 +18,8 @@ public class Player : MonoBehaviour
     [Header("Move info")]
     [SerializeField] public float moveSpeed;
 
+    public int facingDir { get; private set; } = 1;
+    private bool facingRight = true;
 
     private void Awake()
     {
@@ -51,4 +53,38 @@ public class Player : MonoBehaviour
 
     public void AnimationTrigger() => stateMachine.currentState.AnimationTrigger();
 
+    #region Setting Velocity Function
+    public void SetVelocity(float _xVelocity, float _yVelocity)
+    {
+        rb.velocity = new Vector2(_xVelocity, _yVelocity);
+
+        Flip(_xVelocity);
+    }
+
+    public void SetZeroVelocity()
+    {
+        rb.velocity = new Vector2(0, 0);
+    }
+    #endregion
+
+    #region Flip
+    public void FlipLogic()
+    {
+        facingDir = facingDir * -1;
+        facingRight = !facingRight;
+        transform.Rotate(0, 180, 0);
+    }
+
+    public void Flip(float _x)
+    {
+        if (_x > 0 && facingRight == false)
+        {
+            FlipLogic();
+        }
+        else if (_x < 0 && facingRight == true)
+        {
+            FlipLogic();
+        }
+    }
+    #endregion
 }

@@ -18,7 +18,7 @@ public class PlayerMoveState : PlayerState
         base.Update();
 
         // 이동 설정
-        rb.velocity = new Vector2(xInput * player.moveSpeed, rb.velocity.y);
+        player.SetVelocity(xInput * player.moveSpeed, rb.velocity.y);
 
         // 상태 전환
         if (xInput == 0)
