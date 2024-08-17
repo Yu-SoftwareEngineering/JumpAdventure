@@ -8,6 +8,8 @@ public class Player : MonoBehaviour
     public PlayerStateMachine stateMachine;
     public PlayerIdleState idleState;
     public PlayerMoveState moveState;
+    public PlayerJumpState jumpState;
+    public PlayerAirState airState;
     #endregion
 
     #region Component
@@ -17,6 +19,12 @@ public class Player : MonoBehaviour
 
     [Header("Move info")]
     [SerializeField] public float moveSpeed;
+    [SerializeField] public float jumpForce;
+
+    [Header("Collision info")]
+    [SerializeField] private Transform groundCheck;
+    [SerializeField] private float groundCheckDistance;
+    [SerializeField] private LayerMask whatIsGround;
 
     public int facingDir { get; private set; } = 1;
     private bool facingRight = true;
@@ -29,6 +37,8 @@ public class Player : MonoBehaviour
         // State 할당
         idleState = new PlayerIdleState(this, stateMachine, "Idle");
         moveState = new PlayerMoveState(this, stateMachine, "Move");
+        jumpState = new PlayerJumpState(this, stateMachine, "JumpFall");
+        airState = new PlayerAirState(this, stateMachine, "JumpFall");
 
         // 컴포넌트 할당
         rb = GetComponent<Rigidbody2D>();
@@ -86,5 +96,20 @@ public class Player : MonoBehaviour
             FlipLogic();
         }
     }
+    #endregion
+
+    #region Collision Check & Gizmos
+
+    // 땅 감지 함수
+    public bool IsGroundDetected() => Physics2D.Raycast(groundCheck.position, Vector2.down, groundCheckDistance, whatIsGround);
+
+    // Raycast 확인용 선 그리기 함수(유니티 내장)
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawLine(groundCheck.position,
+            new Vector2(groundCheck.position.x, groundCheck.position.y - groundCheckDistance));
+    }
+
     #endregion
 }

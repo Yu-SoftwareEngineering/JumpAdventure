@@ -53,6 +53,9 @@ public class PlayerState
         // 상하좌우 입력 감지
         xInput = Input.GetAxisRaw("Horizontal");
         yInput = Input.GetAxisRaw("Vertical");
+
+        // 점프 파라미터 값 업데이트
+        player.anim.SetFloat("yVelocity",rb.velocity.y);
     }
 
 
