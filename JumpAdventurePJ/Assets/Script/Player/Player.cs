@@ -6,7 +6,8 @@ public class Player : MonoBehaviour
 {
     #region State
     public PlayerStateMachine stateMachine;
-
+    public PlayerIdleState idleState;
+    public PlayerMoveState moveState;
     #endregion
 
     #region Component
@@ -14,7 +15,8 @@ public class Player : MonoBehaviour
     public Animator anim;
     #endregion
 
-
+    [Header("Move info")]
+    [SerializeField] public float moveSpeed;
 
 
     private void Awake()
@@ -23,7 +25,8 @@ public class Player : MonoBehaviour
         stateMachine = new PlayerStateMachine();
 
         // State 할당
-
+        idleState = new PlayerIdleState(this, stateMachine, "Idle");
+        moveState = new PlayerMoveState(this, stateMachine, "Move");
 
         // 컴포넌트 할당
         rb = GetComponent<Rigidbody2D>();
@@ -34,8 +37,8 @@ public class Player : MonoBehaviour
 
     void Start()
     {
-        // 초기 상태 설정 () 안에 idleState 넣고 수정 바람.
-        // stateMachine.Initialize();
+        // 초기 상태 설정 = idleState
+        stateMachine.Initialize(idleState);
     }
 
 
