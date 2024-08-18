@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,6 +21,11 @@ public class Player : MonoBehaviour
     [Header("Move info")]
     [SerializeField] public float moveSpeed;
     [SerializeField] public float jumpForce;
+    [SerializeField] public float doubleJumpForce;
+    [SerializeField] public float fallJumpForce;
+    [NonSerialized] public bool canDoubleJump;
+    [NonSerialized] public bool canFallJump;
+    [NonSerialized] public bool isJumped = false;
 
     [Header("Collision info")]
     [SerializeField] private Transform groundCheck;
@@ -62,6 +68,16 @@ public class Player : MonoBehaviour
 
 
     public void AnimationTrigger() => stateMachine.currentState.AnimationTrigger();
+
+    public void DoubleJump() 
+    {
+        if (canDoubleJump && IsGroundDetected() == false) 
+        {
+            SetVelocity(rb.velocity.x, doubleJumpForce);
+            canDoubleJump = false;
+        }
+    }
+
 
     #region Setting Velocity Function
     public void SetVelocity(float _xVelocity, float _yVelocity)

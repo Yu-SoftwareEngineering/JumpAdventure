@@ -14,6 +14,11 @@ public class PlayerJumpState : PlayerState
 
         // 점프 velocity 부여
         player.SetVelocity(rb.velocity.x, player.jumpForce);
+
+        player.canDoubleJump = true;
+
+        player.isJumped = true;
+        player.canFallJump = false;
     }
 
 
@@ -31,6 +36,12 @@ public class PlayerJumpState : PlayerState
         if (rb.velocity.y > 0)
         {
             player.SetVelocity(xInput * player.moveSpeed * 0.8f, rb.velocity.y);
+        }
+
+        // 더블 점프
+        if (Input.GetKeyDown(KeyCode.Space)) 
+        {
+            player.DoubleJump();
         }
     }
 
