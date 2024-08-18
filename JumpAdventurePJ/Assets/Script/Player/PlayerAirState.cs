@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerAirState : PlayerState
@@ -11,6 +12,12 @@ public class PlayerAirState : PlayerState
     public override void Enter()
     {
         base.Enter();
+
+        // 점프x && 떨어져서 공중(AirState) 상태로 왔을 경우
+        if (player.isJumped == false) 
+        {
+            player.canFallJump = true;
+        }
     }
 
 
@@ -29,12 +36,32 @@ public class PlayerAirState : PlayerState
         {
             player.stateMachine.ChangeState(player.idleState);
         }
-    }
 
+        // 더블 점프
+        if (Input.GetKeyDown(KeyCode.Space)) 
+        {
+            FallJump();
+
+            player.DoubleJump();
+
+        }
+    }
 
     public override void Exit()
     {
         base.Exit();
+
+        player.isJumped = false;
+        player.canFallJump = false;
+    }
+
+    private void FallJump() 
+    {
+        if (player.canFallJump == true) 
+        {
+            player.SetVelocity(rb.velocity.x * 2, player.fallJumpForce);
+            player.canFallJump = false;
+        }
     }
 
 
