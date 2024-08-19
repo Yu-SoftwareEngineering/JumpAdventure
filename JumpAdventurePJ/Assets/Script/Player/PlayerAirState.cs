@@ -13,7 +13,7 @@ public class PlayerAirState : PlayerState
     {
         base.Enter();
 
-        // Á¡ÇÁx && ¶³¾îÁ®¼­ °øÁß(AirState) »óÅÂ·Î ¿ÔÀ» °æ¿ì
+        // ï¿½ï¿½ï¿½ï¿½x && ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(AirState) ï¿½ï¿½ï¿½Â·ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
         if (player.isJumped == false) 
         {
             player.canFallJump = true;
@@ -25,25 +25,30 @@ public class PlayerAirState : PlayerState
     {
         base.Update();
 
-        // °øÁß¿¡¼­ ÁÂ¿ì ÀÔ·Â½Ã ÀÌµ¿
+        // ï¿½ï¿½ï¿½ß¿ï¿½ï¿½ï¿½ ï¿½Â¿ï¿½ ï¿½Ô·Â½ï¿½ ï¿½Ìµï¿½
         if (xInput != 0)
         {
             player.SetVelocity(player.moveSpeed * xInput * 0.8f, rb.velocity.y);
         }
 
-        // ¶¥ °¨Áö½Ã idleState·Î ÀüÈ¯
+        // ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ idleStateï¿½ï¿½ ï¿½ï¿½È¯
         if (player.IsGroundDetected())
         {
             player.stateMachine.ChangeState(player.idleState);
         }
 
-        // ´õºí Á¡ÇÁ
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         if (Input.GetKeyDown(KeyCode.Space)) 
         {
             FallJump();
 
             player.DoubleJump();
 
+        }
+
+        if (player.IsWallDetected()) //me
+        {
+            player.stateMachine.ChangeState(player.wallSlideState);
         }
     }
 

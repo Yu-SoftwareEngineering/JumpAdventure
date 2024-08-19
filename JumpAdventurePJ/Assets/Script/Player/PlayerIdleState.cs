@@ -11,13 +11,14 @@ public class PlayerIdleState : PlayerGroundState
     public override void Enter()
     {
         base.Enter();
+        player.SetZeroVelocity();
     }
 
     public override void Update()
     {
         base.Update();
 
-        // ¹æÇâÅ° ÀÔ·ÂÀÌ 0ÀÌ ¾Æ´Ò½Ã, moveState·Î ÀüÈ¯
+        // ï¿½ï¿½ï¿½ï¿½Å° ï¿½Ô·ï¿½ï¿½ï¿½ 0ï¿½ï¿½ ï¿½Æ´Ò½ï¿½, moveStateï¿½ï¿½ ï¿½ï¿½È¯
         if (xInput != 0)
         {
             stateMachine.ChangeState(player.moveState);

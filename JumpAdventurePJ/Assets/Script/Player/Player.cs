@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     public PlayerMoveState moveState;
     public PlayerJumpState jumpState;
     public PlayerAirState airState;
+    public PlayerWallSlideState wallSlideState; //me
     #endregion
 
     #region Component
@@ -31,22 +32,25 @@ public class Player : MonoBehaviour
     [SerializeField] private Transform groundCheck;
     [SerializeField] private float groundCheckDistance;
     [SerializeField] private LayerMask whatIsGround;
+    [SerializeField] private Transform wallCheck;   // me
+    [SerializeField] private float wallCheckDistance;
 
     public int facingDir { get; private set; } = 1;
     private bool facingRight = true;
 
     private void Awake()
     {
-        // stateMachine ÇÒ´ç
+        // stateMachine ï¿½Ò´ï¿½
         stateMachine = new PlayerStateMachine();
 
-        // State ÇÒ´ç
+        // State ï¿½Ò´ï¿½
         idleState = new PlayerIdleState(this, stateMachine, "Idle");
         moveState = new PlayerMoveState(this, stateMachine, "Move");
         jumpState = new PlayerJumpState(this, stateMachine, "JumpFall");
         airState = new PlayerAirState(this, stateMachine, "JumpFall");
+        wallSlideState = new PlayerWallSlideState(this, stateMachine, "WallSlide"); //me
 
-        // ÄÄÆ÷³ÍÆ® ÇÒ´ç
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ò´ï¿½
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponentInChildren<Animator>();
     }
@@ -55,7 +59,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
-        // ÃÊ±â »óÅÂ ¼³Á¤ = idleState
+        // ï¿½Ê±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ = idleState
         stateMachine.Initialize(idleState);
     }
 
@@ -116,15 +120,20 @@ public class Player : MonoBehaviour
 
     #region Collision Check & Gizmos
 
-    // ¶¥ °¨Áö ÇÔ¼ö
+    // ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½
     public bool IsGroundDetected() => Physics2D.Raycast(groundCheck.position, Vector2.down, groundCheckDistance, whatIsGround);
+    public bool IsWallDetected() => Physics2D.Raycast(wallCheck.position, Vector2.right * facingDir, wallCheckDistance, whatIsGround);
 
-    // Raycast È®ÀÎ¿ë ¼± ±×¸®±â ÇÔ¼ö(À¯´ÏÆ¼ ³»Àå)
+    // Raycast È®ï¿½Î¿ï¿½ ï¿½ï¿½ ï¿½×¸ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½(ï¿½ï¿½ï¿½ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½)
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawLine(groundCheck.position,
             new Vector2(groundCheck.position.x, groundCheck.position.y - groundCheckDistance));
+        
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(wallCheck.position, 
+            new Vector2(wallCheck.position.x + wallCheckDistance * facingDir, wallCheck.position.y));
     }
 
     #endregion
