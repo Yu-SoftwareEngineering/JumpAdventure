@@ -12,8 +12,13 @@ public class PlayerKnockbackState : PlayerState
     {
         base.Enter();
 
+        // 넉백 상태 
         player.isKnocked = true;
+
+        // 넉백 방향 | 힘 가하기
         rb.velocity = new Vector2(player.knockbackForce.x * -player.facingDir, player.knockbackForce.y);
+        
+        // knocbackDuration ( = knockbackState 지속시간 )
         stateTimer = player.knockbackDuration;
     }
 
@@ -21,6 +26,7 @@ public class PlayerKnockbackState : PlayerState
     {
         base.Update();
 
+        // knockbackDuration 만큼 시간 경과시, idleState로 전환
         if (stateTimer < 0)
         {
             stateMachine.ChangeState(player.idleState);

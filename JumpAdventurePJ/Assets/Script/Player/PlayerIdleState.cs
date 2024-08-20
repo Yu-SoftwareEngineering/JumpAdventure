@@ -11,6 +11,7 @@ public class PlayerIdleState : PlayerGroundState
     public override void Enter()
     {
         base.Enter();
+
         player.SetZeroVelocity();
     }
 
@@ -18,7 +19,7 @@ public class PlayerIdleState : PlayerGroundState
     {
         base.Update();
 
-        // ����Ű �Է��� 0�� �ƴҽ�, moveState�� ��ȯ
+        // 방향키 입력시 moveState로 전환
         if (xInput != 0)
         {
             stateMachine.ChangeState(player.moveState);

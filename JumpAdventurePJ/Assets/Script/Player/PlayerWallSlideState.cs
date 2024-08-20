@@ -17,16 +17,17 @@ public class PlayerWallSlideState : PlayerState
     {   
         base.Update();
 
-        if (yInput >= 0) 
+        // 벽타기 속도
+        if (yInput >= 0)
         {
             player.SetVelocity(0, rb.velocity.y * 0.95f);
         }
-        
-        else if (yInput < 0) 
+        else if (yInput < 0)
         {
             player.SetVelocity(0, rb.velocity.y);
         }
 
+        // 벽타기 중 방향키로 떨어지기
         if (xInput != 0 && player.facingDir != xInput)
         {
             stateMachine.ChangeState(player.idleState);

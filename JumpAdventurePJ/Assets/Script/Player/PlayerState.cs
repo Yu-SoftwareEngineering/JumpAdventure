@@ -57,6 +57,7 @@ public class PlayerState
         // 점프 파라미터 값 업데이트
         player.anim.SetFloat("yVelocity",rb.velocity.y);
 
+        // 플레이어 knockback 상태 전환
         KnockBack();
     }
 
@@ -79,6 +80,7 @@ public class PlayerState
         {
             if(player.stateMachine.currentState == player.knockbackState)
             {
+                player.canKnockback = false;
                 return;
             }
             stateMachine.ChangeState(player.knockbackState);

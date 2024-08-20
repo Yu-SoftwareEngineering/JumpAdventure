@@ -13,7 +13,7 @@ public class PlayerAirState : PlayerState
     {
         base.Enter();
 
-        // ����x && �������� ����(AirState) ���·� ���� ���
+        // 점프x && 떨어져서 공중(AirState) 상태로 왔을 경우
         if (player.isJumped == false) 
         {
             player.canFallJump = true;
@@ -25,27 +25,28 @@ public class PlayerAirState : PlayerState
     {
         base.Update();
 
-        // ���߿��� �¿� �Է½� �̵�
+        // 공중에서 좌우 입력시 이동
         if (xInput != 0)
         {
             player.SetVelocity(player.moveSpeed * xInput * 0.8f, rb.velocity.y);
         }
 
-        // �� ������ idleState�� ��ȯ
+        // 땅 감지시 idleState로 전환
         if (player.IsGroundDetected())
         {
             player.stateMachine.ChangeState(player.idleState);
         }
 
-        // ���� ����
+        // 더블 점프
         if (Input.GetKeyDown(KeyCode.Space)) 
         {
+            // 땅에서 떨어져서 Air상태로 왔을 경우 1회 점프
             FallJump();
 
             player.DoubleJump();
-
         }
 
+        // 벽 감지시 wallSlideState 상태로 전환
         if (player.IsWallDetected())
         {
             player.stateMachine.ChangeState(player.wallSlideState);
