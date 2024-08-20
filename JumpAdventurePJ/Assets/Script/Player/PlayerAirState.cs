@@ -46,7 +46,7 @@ public class PlayerAirState : PlayerState
 
         }
 
-        if (player.IsWallDetected()) //me
+        if (player.IsWallDetected())
         {
             player.stateMachine.ChangeState(player.wallSlideState);
         }
