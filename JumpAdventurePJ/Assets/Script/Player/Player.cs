@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     public PlayerAirState airState;
     public PlayerWallSlideState wallSlideState; 
     public PlayerWallJumpState wallJumpState;
+    public PlayerKnockbackState knockbackState;
     #endregion
 
     #region Component
@@ -22,7 +23,7 @@ public class Player : MonoBehaviour
 
     [Header("Move info")]
     [SerializeField] public float moveSpeed;
-    [SerializeField] public float jumpForce;
+    [SerializeField] public float jumpForce; 
     [SerializeField] public float doubleJumpForce;
     [SerializeField] public float fallJumpForce;
     [NonSerialized] public bool canDoubleJump;
@@ -35,6 +36,12 @@ public class Player : MonoBehaviour
     [SerializeField] private LayerMask whatIsGround;
     [SerializeField] private Transform wallCheck;
     [SerializeField] private float wallCheckDistance;
+
+    [Header("Knockback info")]
+    [SerializeField] public float knockbackDuration;
+    [SerializeField] public Vector2 knockbackForce;
+    [SerializeField] public bool canKnockback;
+    [SerializeField] public bool isKnocked;
 
     public int facingDir { get; private set; } = 1;
     private bool facingRight = true;
@@ -51,6 +58,7 @@ public class Player : MonoBehaviour
         airState = new PlayerAirState(this, stateMachine, "JumpFall");
         wallSlideState = new PlayerWallSlideState(this, stateMachine, "WallSlide");
         wallJumpState = new PlayerWallJumpState(this, stateMachine, "JumpFall");
+        knockbackState = new PlayerKnockbackState(this, stateMachine, "KnockBack");
 
         // Component
         rb = GetComponent<Rigidbody2D>();

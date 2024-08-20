@@ -352,6 +352,12 @@ MonoBehaviour:
     m_Bits: 128
   wallCheck: {fileID: 1866328326}
   wallCheckDistance: 1.1
+  knockbackDuration: 0.5
+  knockbackForce: {x: 2, y: 0}
+  canKnockback: 0
+  isKnocked: 0
+  stunDuration: 0
+  canStun: 0
 --- !u!1 &256601032
 GameObject:
   m_ObjectHideFlags: 0
