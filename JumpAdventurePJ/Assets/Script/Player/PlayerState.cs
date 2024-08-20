@@ -56,6 +56,8 @@ public class PlayerState
 
         // 점프 파라미터 값 업데이트
         player.anim.SetFloat("yVelocity",rb.velocity.y);
+
+        KnockBack();
     }
 
 
@@ -70,4 +72,18 @@ public class PlayerState
     // triggerCalled를 true로 만들어주는 함수
     public void AnimationTrigger() => triggerCalled = true;
 
+    #region KnockBack
+    private void KnockBack()
+    {
+        if (player.canKnockback)
+        {
+            if(player.stateMachine.currentState == player.knockbackState)
+            {
+                return;
+            }
+            stateMachine.ChangeState(player.knockbackState);
+            player.canKnockback = false;
+        }
+    }
+    #endregion
 }
