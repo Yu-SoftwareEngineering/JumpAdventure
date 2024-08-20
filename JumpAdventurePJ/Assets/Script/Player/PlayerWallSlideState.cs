@@ -43,6 +43,13 @@ public class PlayerWallSlideState : PlayerState
         {
             stateMachine.ChangeState(player.idleState);
         }
+
+        // 벽 점프로 전환
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            stateMachine.ChangeState(player.wallJumpState);
+        }
+
     }
     public override void Exit()
     {

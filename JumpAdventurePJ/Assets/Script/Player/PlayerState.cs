@@ -17,7 +17,7 @@ public class PlayerState
     protected float yInput;
     protected string animBoolName;
 
-    protected float StateTimer;
+    protected float stateTimer;
     protected bool triggerCalled;
 
 
@@ -48,7 +48,7 @@ public class PlayerState
     public virtual void Update()
     {
         // 계속해서 감소하는 타이머
-        StateTimer -= Time.deltaTime;
+        stateTimer -= Time.deltaTime;
 
         // 상하좌우 입력 감지
         xInput = Input.GetAxisRaw("Horizontal");

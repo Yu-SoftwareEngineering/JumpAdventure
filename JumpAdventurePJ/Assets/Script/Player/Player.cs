@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     public PlayerJumpState jumpState;
     public PlayerAirState airState;
     public PlayerWallSlideState wallSlideState; //me
+    public PlayerWallJumpState wallJumpState;
     #endregion
 
     #region Component
@@ -49,6 +50,7 @@ public class Player : MonoBehaviour
         jumpState = new PlayerJumpState(this, stateMachine, "JumpFall");
         airState = new PlayerAirState(this, stateMachine, "JumpFall");
         wallSlideState = new PlayerWallSlideState(this, stateMachine, "WallSlide"); //me
+        wallJumpState = new PlayerWallJumpState(this, stateMachine, "JumpFall");
 
         // ������Ʈ �Ҵ�
         rb = GetComponent<Rigidbody2D>();
