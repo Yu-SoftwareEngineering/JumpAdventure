@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
     public PlayerWallSlideState wallSlideState; 
     public PlayerWallJumpState wallJumpState;
     public PlayerKnockbackState knockbackState;
+    public PlayerStunnedState stunnedState;
     #endregion
 
     #region Component
@@ -37,11 +38,13 @@ public class Player : MonoBehaviour
     [SerializeField] private Transform wallCheck;
     [SerializeField] private float wallCheckDistance;
 
-    [Header("Knockback info")]
+    [Header("Knockback & Stun info")]
     [SerializeField] public float knockbackDuration;
     [SerializeField] public Vector2 knockbackForce;
     [SerializeField] public bool canKnockback;
     [SerializeField] public bool isKnocked;
+    [SerializeField] public float stunDuration;
+    [SerializeField] public bool canStun;
 
     public int facingDir { get; private set; } = 1;
     private bool facingRight = true;
@@ -59,6 +62,7 @@ public class Player : MonoBehaviour
         wallSlideState = new PlayerWallSlideState(this, stateMachine, "WallSlide");
         wallJumpState = new PlayerWallJumpState(this, stateMachine, "JumpFall");
         knockbackState = new PlayerKnockbackState(this, stateMachine, "KnockBack");
+        stunnedState = new PlayerStunnedState(this, stateMachine, "Stun");
 
         // Component
         rb = GetComponent<Rigidbody2D>();
