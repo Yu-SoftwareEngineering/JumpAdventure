@@ -13,10 +13,10 @@ public class PlayerWallJumpState : PlayerState
         base.Enter();
 
         // PlayerState에서 상속받은 stateTimer[계속해서 감소하는 타이머]
-        stateTimer = 0.4f; // 어떤 상태가 종료되는지? 
+        stateTimer = 0.4f;
 
         // 진입시 속도 설정
-        player.SetVelocity(player.moveSpeed * -player.facingDir, player.jumpForce * 0.5f); // 벽 반대로 점프한다는뜻?
+        player.SetVelocity(player.moveSpeed * -player.facingDir, player.jumpForce * 0.5f);
     }
 
     public override void Update()

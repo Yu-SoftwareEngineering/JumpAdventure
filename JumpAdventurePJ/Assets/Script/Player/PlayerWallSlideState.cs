@@ -32,13 +32,13 @@ public class PlayerWallSlideState : PlayerState
             stateMachine.ChangeState(player.idleState);
         }
 
-        // when player reaches the ground, change to idleState
+        // 바닥 감지 => idleState로 전환
         if (player.IsGroundDetected()) 
         {
             stateMachine.ChangeState(player.idleState);
         }
 
-        // when player is not reaching the wall, change to idleState
+        // 벽 감지x => idleState로 전환 ( airState로 바로 변경됨 )
         if (player.IsWallDetected() == false)
         {
             stateMachine.ChangeState(player.idleState);

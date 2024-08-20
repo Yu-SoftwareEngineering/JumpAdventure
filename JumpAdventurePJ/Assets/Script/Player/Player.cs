@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
     public PlayerMoveState moveState;
     public PlayerJumpState jumpState;
     public PlayerAirState airState;
-    public PlayerWallSlideState wallSlideState; //me
+    public PlayerWallSlideState wallSlideState; 
     public PlayerWallJumpState wallJumpState;
     #endregion
 
@@ -33,7 +33,7 @@ public class Player : MonoBehaviour
     [SerializeField] private Transform groundCheck;
     [SerializeField] private float groundCheckDistance;
     [SerializeField] private LayerMask whatIsGround;
-    [SerializeField] private Transform wallCheck;   // me
+    [SerializeField] private Transform wallCheck;
     [SerializeField] private float wallCheckDistance;
 
     public int facingDir { get; private set; } = 1;
@@ -41,18 +41,18 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
-        // stateMachine �Ҵ�
+        // stateMachine
         stateMachine = new PlayerStateMachine();
 
-        // State �Ҵ�
+        // State
         idleState = new PlayerIdleState(this, stateMachine, "Idle");
         moveState = new PlayerMoveState(this, stateMachine, "Move");
         jumpState = new PlayerJumpState(this, stateMachine, "JumpFall");
         airState = new PlayerAirState(this, stateMachine, "JumpFall");
-        wallSlideState = new PlayerWallSlideState(this, stateMachine, "WallSlide"); //me
+        wallSlideState = new PlayerWallSlideState(this, stateMachine, "WallSlide");
         wallJumpState = new PlayerWallJumpState(this, stateMachine, "JumpFall");
 
-        // ������Ʈ �Ҵ�
+        // Component
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponentInChildren<Animator>();
     }
@@ -61,7 +61,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
-        // �ʱ� ���� ���� = idleState
+        // 초기 상태 = idleState
         stateMachine.Initialize(idleState);
     }
 
