@@ -23,7 +23,7 @@ public class Player : MonoBehaviour
 
     [Header("Move info")]
     [SerializeField] public float moveSpeed;
-    [SerializeField] public float jumpForce;
+    [SerializeField] public float jumpForce; 
     [SerializeField] public float doubleJumpForce;
     [SerializeField] public float fallJumpForce;
     [NonSerialized] public bool canDoubleJump;
