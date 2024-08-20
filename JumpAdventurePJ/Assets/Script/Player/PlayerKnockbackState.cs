@@ -26,11 +26,21 @@ public class PlayerKnockbackState : PlayerState
     {
         base.Update();
 
-        // knockbackDuration 만큼 시간 경과시, idleState로 전환
+        // knockbackDuration 만큼 시간 경과시 상태 전환
         if (stateTimer < 0)
         {
-            stateMachine.ChangeState(player.idleState);
+            // canStun = true => stunnedState로 전환
+            if(player.canStun)
+            {
+                stateMachine.ChangeState(player.stunnedState);
+            }
+            // canStun = false => idleState로 전환
+            else
+            {
+                stateMachine.ChangeState(player.idleState);
+            }
         }
+
     }
 
     public override void Exit()
@@ -39,6 +49,11 @@ public class PlayerKnockbackState : PlayerState
 
         player.SetZeroVelocity();
 
-        player.isKnocked = false;
+        if(player.canStun == false)
+        {
+            player.isKnocked = false;
+        }
+
     }
+
 }
