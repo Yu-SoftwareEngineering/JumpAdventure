@@ -44,8 +44,14 @@ TagManager:
   - name: BackGround
     uniqueID: 902402433
     locked: 0
+  - name: Structure_Behind
+    uniqueID: 142002793
+    locked: 0
   - name: Ground
     uniqueID: 526398533
+    locked: 0
+  - name: Structure_Front
+    uniqueID: 2485489625
     locked: 0
   - name: Player
     uniqueID: 1534568515
