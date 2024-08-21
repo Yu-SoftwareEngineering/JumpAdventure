@@ -15,11 +15,13 @@ public class Player : MonoBehaviour
     public PlayerWallJumpState wallJumpState;
     public PlayerKnockbackState knockbackState;
     public PlayerStunnedState stunnedState;
+    public PlayerDeadState deadState;
     #endregion
 
     #region Component
     public Rigidbody2D rb;
     public Animator anim;
+    public SpriteRenderer sr;
     #endregion
 
     [Header("Move info")]
@@ -63,10 +65,12 @@ public class Player : MonoBehaviour
         wallJumpState = new PlayerWallJumpState(this, stateMachine, "JumpFall");
         knockbackState = new PlayerKnockbackState(this, stateMachine, "KnockBack");
         stunnedState = new PlayerStunnedState(this, stateMachine, "Stun");
+        deadState = new PlayerDeadState(this, stateMachine, "Dead");
 
         // Component
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponentInChildren<Animator>();
+        sr = GetComponentInChildren<SpriteRenderer>();
     }
 
 
@@ -82,6 +86,12 @@ public class Player : MonoBehaviour
     void Update()
     {
         stateMachine.currentState.Update();
+
+        // Die 테스트 
+        if (Input.GetKeyDown(KeyCode.U))
+        {
+            Die();
+        }
     }
 
 
@@ -149,6 +159,12 @@ public class Player : MonoBehaviour
         Gizmos.DrawLine(wallCheck.position, 
             new Vector2(wallCheck.position.x + wallCheckDistance * facingDir, wallCheck.position.y));
     }
+
+    #endregion
+
+    #region Dead
+    public void Die() => stateMachine.ChangeState(deadState);
+    public void DestroyPlayer() => Destroy(gameObject);
 
     #endregion
 }

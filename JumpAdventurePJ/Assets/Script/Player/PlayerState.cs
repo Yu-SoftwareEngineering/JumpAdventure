@@ -11,6 +11,7 @@ public class PlayerState
 
     // 컴포넌트
     protected Rigidbody2D rb;
+    protected SpriteRenderer sr;
 
     // Setting
     protected float xInput;
@@ -38,6 +39,7 @@ public class PlayerState
 
         // 컴포넌트 할당
         rb = player.rb;
+        sr = player.sr;
 
         // triggerCalled = false 상태로 초기화
         triggerCalled = false;
