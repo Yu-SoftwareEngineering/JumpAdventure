@@ -134,7 +134,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1534568515
-  m_SortingLayer: 3
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: d45d1efe52da7464db72d7af98c07401, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -197,7 +197,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 322238509894705354}
@@ -220,17 +220,17 @@ MonoBehaviour:
   rb: {fileID: 0}
   anim: {fileID: 0}
   sr: {fileID: 0}
-  moveSpeed: 12
-  jumpForce: 20
-  doubleJumpForce: 15
-  fallJumpForce: 15
+  moveSpeed: 5
+  jumpForce: 17
+  doubleJumpForce: 13
+  fallJumpForce: 13
   groundCheck: {fileID: 2093790730665711993}
   groundCheckDistance: 0.15
   whatIsGround:
     serializedVersion: 2
     m_Bits: 128
   wallCheck: {fileID: 3512986564161383386}
-  wallCheckDistance: 1.1
+  wallCheckDistance: 0.45
   knockbackDuration: 1
   knockbackForce: {x: 5, y: 8}
   canKnockback: 0
