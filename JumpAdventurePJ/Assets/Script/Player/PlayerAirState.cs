@@ -38,7 +38,7 @@ public class PlayerAirState : PlayerState
         }
 
         // 더블 점프
-        if (Input.GetKeyDown(KeyCode.Space)) 
+        if (Input.GetKeyDown(KeyCode.Space) && !player.isRespawning) 
         {
             // 땅에서 떨어져서 Air상태로 왔을 경우 1회 점프
             FallJump();
