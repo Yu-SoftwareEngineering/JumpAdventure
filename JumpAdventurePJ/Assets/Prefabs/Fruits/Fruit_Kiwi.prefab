@@ -120,7 +120,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7567830986673704070}
   - component: {fileID: 8425861847304433223}
-  - component: {fileID: 7238534356645156305}
+  - component: {fileID: 3975052291358123689}
   m_Layer: 0
   m_Name: Fruit_Kiwi
   m_TagString: Untagged
@@ -180,7 +180,7 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0.061110377}
   m_Radius: 0.490296
---- !u!114 &7238534356645156305
+--- !u!114 &3975052291358123689
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

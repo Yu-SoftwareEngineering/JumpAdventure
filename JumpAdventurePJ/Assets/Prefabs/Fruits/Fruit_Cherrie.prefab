@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4469179093299140934}
   - component: {fileID: 5429313177486786028}
-  - component: {fileID: 2725185202746296533}
+  - component: {fileID: 8324706953705729944}
   m_Layer: 0
   m_Name: Fruit_Cherrie
   m_TagString: Untagged
@@ -70,7 +70,7 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0.061110377}
   m_Radius: 0.490296
---- !u!114 &2725185202746296533
+--- !u!114 &8324706953705729944
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
