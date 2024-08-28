@@ -12,8 +12,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Transform respawnPoint;
     [SerializeField] private float respawnDelay;
 
-
     [SerializeField] private CinemachineCamera cine;
+
+    [Header("Fruits info")]
+    public bool fruitsRandomLook;
+    public int fruitsCollected;
 
     private void Awake()
     {
@@ -45,5 +48,12 @@ public class GameManager : MonoBehaviour
         respawnPoint = _newRespawnPoint;
     }
 
+    #region Fruits
 
+    // 과일 개수 증가 함수
+    public void AddFruit() => fruitsCollected++;
+
+    public bool FruitsRandomLook() => fruitsRandomLook;
+
+    #endregion
 }

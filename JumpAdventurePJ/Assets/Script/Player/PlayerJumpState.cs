@@ -15,9 +15,8 @@ public class PlayerJumpState : PlayerState
         // 점프 velocity 부여
         player.SetVelocity(0, player.jumpForce);
 
-        player.canDoubleJump = true;
-
         player.isJumped = true;
+        player.canDoubleJump = true;
         player.canFallJump = false;
     }
 
