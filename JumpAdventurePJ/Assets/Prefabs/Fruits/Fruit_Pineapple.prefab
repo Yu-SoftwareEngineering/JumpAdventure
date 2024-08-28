@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9142388560475974753}
   - component: {fileID: 5062777233661283036}
-  - component: {fileID: 109101663598268375}
+  - component: {fileID: 5295896611559423390}
   m_Layer: 0
   m_Name: Fruit_Pineapple
   m_TagString: Untagged
@@ -70,7 +70,7 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0.061110377}
   m_Radius: 0.490296
---- !u!114 &109101663598268375
+--- !u!114 &5295896611559423390
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

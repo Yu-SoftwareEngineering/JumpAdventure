@@ -120,7 +120,7 @@ GameObject:
   m_Component:
   - component: {fileID: 567391701056680948}
   - component: {fileID: 6702650293309255619}
-  - component: {fileID: 235987085741741518}
+  - component: {fileID: 3025620755553546508}
   m_Layer: 0
   m_Name: Fruit_Strawberry
   m_TagString: Untagged
@@ -180,7 +180,7 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0.061110377}
   m_Radius: 0.490296
---- !u!114 &235987085741741518
+--- !u!114 &3025620755553546508
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

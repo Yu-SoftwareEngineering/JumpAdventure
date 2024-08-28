@@ -2,7 +2,7 @@ using UnityEngine;
 
 public enum FruitType { Apple, Banana, Cherry, kiwi, Melon, Orange, Pineapple, Strawberry }
 
-public class Fruits : MonoBehaviour
+public class Fruit : MonoBehaviour
 {
     [SerializeField] private FruitType fruitType;
     [SerializeField] private GameObject pickUpFX;

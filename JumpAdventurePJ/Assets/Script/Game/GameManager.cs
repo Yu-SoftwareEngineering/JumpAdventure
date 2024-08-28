@@ -12,11 +12,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Transform respawnPoint;
     [SerializeField] private float respawnDelay;
 
-    [SerializeField] private CinemachineCamera cine;
-
     [Header("Fruits info")]
-    public bool fruitsRandomLook;
+    public int totalFruits;
     public int fruitsCollected;
+    public bool fruitsRandomLook;
+
+    [SerializeField] private CinemachineCamera cine;
 
     private void Awake()
     {
@@ -29,6 +30,11 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    private void Start()
+    {
+        CollectFruitsInfo();
     }
 
     public void RespawnPlayer() => StartCoroutine(RespawnLogic());
@@ -53,7 +59,15 @@ public class GameManager : MonoBehaviour
     // 과일 개수 증가 함수
     public void AddFruit() => fruitsCollected++;
 
+    // 과일 랜덤
     public bool FruitsRandomLook() => fruitsRandomLook;
+
+    // 맵내의 과일 총 개수 자동계산
+    private void CollectFruitsInfo()
+    {
+        Fruit[] allFruits = FindObjectsByType<Fruit>(FindObjectsSortMode.None);
+        totalFruits = allFruits.Length;
+    }
 
     #endregion
 }
