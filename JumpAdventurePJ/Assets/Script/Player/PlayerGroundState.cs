@@ -19,7 +19,7 @@ public class PlayerGroundState : PlayerState
         base.Update();
 
         // Space 입력 => jumpState 전환
-        if(Input.GetKeyDown(KeyCode.Space))
+        if(Input.GetKeyDown(KeyCode.Space) && !player.isRespawning)
         {
             stateMachine.ChangeState(player.jumpState);
         }
