@@ -193,3 +193,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fruitType: 3
+  pickUpFX: {fileID: 7898545563849351888, guid: 8b4b1d28a3de5b74c989430e94e962be, type: 3}

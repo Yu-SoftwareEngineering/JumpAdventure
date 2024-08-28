@@ -83,6 +83,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fruitType: 6
+  pickUpFX: {fileID: 7898545563849351888, guid: 8b4b1d28a3de5b74c989430e94e962be, type: 3}
 --- !u!1 &6770393698666050170
 GameObject:
   m_ObjectHideFlags: 0
