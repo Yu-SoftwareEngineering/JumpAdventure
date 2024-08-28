@@ -57,8 +57,9 @@ public class PlayerAirState : PlayerState
     {
         base.Exit();
 
-        player.isJumped = false;
+        player.canDoubleJump = true;
         player.canFallJump = false;
+        player.isJumped = false;
     }
 
     private void FallJump() 
