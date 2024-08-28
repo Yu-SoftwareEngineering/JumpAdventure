@@ -13,7 +13,7 @@ public class PlayerJumpState : PlayerState
         base.Enter();
 
         // 점프 velocity 부여
-        player.SetVelocity(rb.velocity.x, player.jumpForce);
+        player.SetVelocity(0, player.jumpForce);
 
         player.canDoubleJump = true;
 
