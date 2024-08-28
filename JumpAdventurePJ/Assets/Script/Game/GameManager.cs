@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Respawn info")]
     [SerializeField] private GameObject playerPrefab;
-    [SerializeField] private Transform respwanPoint;
+    [SerializeField] private Transform respawnPoint;
     [SerializeField] private float respawnDelay;
 
 
@@ -34,12 +34,16 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(respawnDelay);
 
-        GameObject newPlayer = Instantiate(playerPrefab, respwanPoint.position, Quaternion.identity);
+        GameObject newPlayer = Instantiate(playerPrefab, respawnPoint.position, Quaternion.identity);
         player = newPlayer.GetComponent<Player>();
         cine.Follow = player.transform;
     }
 
-
+    // 리스폰 위치 업데이트 함수
+    public void UpdateRespawnPosition(Transform _newRespawnPoint)
+    {
+        respawnPoint = _newRespawnPoint;
+    }
 
 
 }
