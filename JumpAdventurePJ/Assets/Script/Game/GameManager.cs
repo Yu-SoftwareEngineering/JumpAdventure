@@ -1,3 +1,5 @@
+using System.Collections;
+using Unity.Cinemachine;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -5,6 +7,13 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     public Player player;
 
+    [Header("Respawn info")]
+    [SerializeField] private GameObject playerPrefab;
+    [SerializeField] private Transform respwanPoint;
+    [SerializeField] private float respawnDelay;
+
+
+    [SerializeField] private CinemachineCamera cine;
 
     private void Awake()
     {
@@ -17,14 +26,20 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
     }
 
+    public void RespawnPlayer() => StartCoroutine(RespawnLogic());
 
-    private void Start()
+    private IEnumerator RespawnLogic()
     {
-        
+        yield return new WaitForSeconds(respawnDelay);
+
+        GameObject newPlayer = Instantiate(playerPrefab, respwanPoint.position, Quaternion.identity);
+        player = newPlayer.GetComponent<Player>();
+        cine.Follow = player.transform;
     }
+
+
 
 
 }
