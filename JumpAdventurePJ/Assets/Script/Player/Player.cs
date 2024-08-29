@@ -48,6 +48,10 @@ public class Player : MonoBehaviour
     [SerializeField] public float stunDuration;
     [SerializeField] public bool canStun;
 
+    [Header("Respawn info")]
+    [SerializeField] GameObject respawnEffectPrefab;
+    [NonSerialized] public bool isRespawning;
+
     public int facingDir { get; private set; } = 1;
     private bool facingRight = true;
 
@@ -79,6 +83,9 @@ public class Player : MonoBehaviour
     {
         // 초기 상태 = idleState
         stateMachine.Initialize(idleState);
+
+        // 리스폰 효과 실행
+        StartCoroutine(Respawn());
     }
 
 
@@ -165,6 +172,28 @@ public class Player : MonoBehaviour
     #region Dead
     public void Die() => stateMachine.ChangeState(deadState);
     public void DestroyPlayer() => Destroy(gameObject);
+
+    #endregion
+
+    #region Respawn
+
+    private IEnumerator Respawn()
+    {
+        isRespawning = true;
+
+        // RigidBody로 인한 이동x
+        rb.bodyType = RigidbodyType2D.Static;
+        // 이펙트 생성
+        Instantiate(respawnEffectPrefab,
+        new Vector2(transform.position.x - 0.1f, transform.position.y + 0.25f),
+        Quaternion.identity);
+        // 0.5초 딜레이
+        yield return new WaitForSeconds(0.5f);
+        // RIgidBody 정상화
+        rb.bodyType = RigidbodyType2D.Dynamic;
+
+        isRespawning = false;
+    }
 
     #endregion
 }

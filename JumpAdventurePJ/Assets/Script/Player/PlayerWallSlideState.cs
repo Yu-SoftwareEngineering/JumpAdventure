@@ -18,7 +18,7 @@ public class PlayerWallSlideState : PlayerState
         base.Update();
 
         // 벽타기 속도
-        if (yInput >= 0)
+        if (yInput == 0)
         {
             player.SetVelocity(0, rb.velocity.y * 0.95f);
         }
@@ -26,6 +26,12 @@ public class PlayerWallSlideState : PlayerState
         {
             player.SetVelocity(0, rb.velocity.y);
         }
+        else if ( yInput > 0 )
+        {
+            player.SetVelocity(0, rb.velocity.y * 0.5f);
+        }
+
+
 
         // 벽타기 중 방향키로 떨어지기
         if (xInput != 0 && player.facingDir != xInput)
