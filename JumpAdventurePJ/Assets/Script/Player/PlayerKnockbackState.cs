@@ -16,7 +16,7 @@ public class PlayerKnockbackState : PlayerState
         player.isKnocked = true;
 
         // 넉백 방향 | 힘 가하기
-        rb.velocity = new Vector2(player.knockbackForce.x * -player.facingDir, player.knockbackForce.y);
+        rb.velocity = new Vector2(player.knockbackForce.x * -player.knockbackDir, player.knockbackForce.y);
         
         // knocbackDuration ( = knockbackState 지속시간 )
         stateTimer = player.knockbackDuration;
