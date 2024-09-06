@@ -1586,7 +1586,7 @@ Camera:
   far clip plane: 1000
   field of view: 6
   orthographic: 1
-  orthographic size: 6
+  orthographic size: 7
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1611,7 +1611,7 @@ Transform:
   m_GameObject: {fileID: 1216791913}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.8755035, y: 2.1821196, z: -10}
+  m_LocalPosition: {x: -2.0952854, y: 1.1821196, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1657,45 +1657,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4611324635334600493, guid: 968a5cba34f70754a927d88ed477fdb2, type: 3}
-      propertyPath: jumpForce
-      value: 17
-      objectReference: {fileID: 0}
-    - target: {fileID: 4611324635334600493, guid: 968a5cba34f70754a927d88ed477fdb2, type: 3}
-      propertyPath: moveSpeed
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4611324635334600493, guid: 968a5cba34f70754a927d88ed477fdb2, type: 3}
-      propertyPath: fallJumpForce
-      value: 13
-      objectReference: {fileID: 0}
-    - target: {fileID: 4611324635334600493, guid: 968a5cba34f70754a927d88ed477fdb2, type: 3}
-      propertyPath: doubleJumpForce
-      value: 13
-      objectReference: {fileID: 0}
     - target: {fileID: 5026698707843350343, guid: 968a5cba34f70754a927d88ed477fdb2, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 7747752014518744432, guid: 968a5cba34f70754a927d88ed477fdb2, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 7747752014518744432, guid: 968a5cba34f70754a927d88ed477fdb2, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 7747752014518744432, guid: 968a5cba34f70754a927d88ed477fdb2, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 7747752014518744432, guid: 968a5cba34f70754a927d88ed477fdb2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -12.75
+      value: -13.44
       objectReference: {fileID: 0}
     - target: {fileID: 7747752014518744432, guid: 968a5cba34f70754a927d88ed477fdb2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.48
+      value: 3.66
       objectReference: {fileID: 0}
     - target: {fileID: 7747752014518744432, guid: 968a5cba34f70754a927d88ed477fdb2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1833,7 +1805,7 @@ MonoBehaviour:
     CustomLookAtTarget: 0
   Lens:
     FieldOfView: 6
-    OrthographicSize: 6
+    OrthographicSize: 7
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -1860,7 +1832,7 @@ Transform:
   m_GameObject: {fileID: 1473328202}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.75, y: 3.48, z: -10}
+  m_LocalPosition: {x: -13.440001, y: 3.66, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

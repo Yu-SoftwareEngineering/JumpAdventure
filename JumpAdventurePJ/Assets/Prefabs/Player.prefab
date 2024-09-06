@@ -201,7 +201,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.4}
+  m_LocalScale: {x: 0.55, y: 0.55, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 322238509894705354}
@@ -234,7 +234,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   wallCheck: {fileID: 3512986564161383386}
-  wallCheckDistance: 0.55
+  wallCheckDistance: 0.57
   knockbackDuration: 1
   knockbackForce: {x: 5, y: 8}
   canKnockback: 0

@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 8832494371411991442}
   - component: {fileID: 3987473193215491956}
   m_Layer: 0
-  m_Name: Start
+  m_Name: StartPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -47,6 +47,7 @@ public class Player : MonoBehaviour
     [SerializeField] public bool isKnocked;
     [SerializeField] public float stunDuration;
     [SerializeField] public bool canStun;
+    [NonSerialized] public float knockbackDir = -1;
 
     [Header("Respawn info")]
     [SerializeField] GameObject respawnEffectPrefab;
@@ -78,7 +79,6 @@ public class Player : MonoBehaviour
     }
 
 
-
     void Start()
     {
         // 초기 상태 = idleState
@@ -93,12 +93,6 @@ public class Player : MonoBehaviour
     void Update()
     {
         stateMachine.currentState.Update();
-
-        // Die 테스트 
-        if (Input.GetKeyDown(KeyCode.U))
-        {
-            Die();
-        }
     }
 
 
@@ -151,11 +145,12 @@ public class Player : MonoBehaviour
 
     #region Collision Check & Gizmos
 
-    // �� ���� �Լ�
+    // 땅 감지 함수
     public bool IsGroundDetected() => Physics2D.Raycast(groundCheck.position, Vector2.down, groundCheckDistance, whatIsGround);
+    // 벽 감지 함수
     public bool IsWallDetected() => Physics2D.Raycast(wallCheck.position, Vector2.right * facingDir, wallCheckDistance, whatIsGround);
 
-    // Raycast Ȯ�ο� �� �׸��� �Լ�(����Ƽ ����)
+    // 위 함수들의 Raycast를 유니티내에서 시각적으로 그리기
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
