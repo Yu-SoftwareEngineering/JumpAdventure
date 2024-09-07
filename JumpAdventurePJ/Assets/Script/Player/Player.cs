@@ -111,6 +111,8 @@ public class Player : MonoBehaviour
     #region Setting Velocity Function
     public void SetVelocity(float _xVelocity, float _yVelocity)
     {
+        if (isKnocked)
+            return;
         rb.velocity = new Vector2(_xVelocity, _yVelocity);
 
         Flip(_xVelocity);
@@ -118,6 +120,8 @@ public class Player : MonoBehaviour
 
     public void SetZeroVelocity()
     {
+        if (isKnocked)
+            return;
         rb.velocity = new Vector2(0, 0);
     }
     #endregion
