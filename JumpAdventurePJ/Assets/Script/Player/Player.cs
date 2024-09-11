@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -116,6 +117,7 @@ public class Player : MonoBehaviour
         {
             return;
         }
+
         rb.velocity = new Vector2(_xVelocity, _yVelocity);
 
         Flip(_xVelocity);
@@ -127,6 +129,7 @@ public class Player : MonoBehaviour
         {
             return;
         }
+
         rb.velocity = new Vector2(0, 0);
     }
     #endregion
