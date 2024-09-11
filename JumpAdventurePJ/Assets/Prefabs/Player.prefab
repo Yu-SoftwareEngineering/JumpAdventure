@@ -239,7 +239,7 @@ MonoBehaviour:
   knockbackForce: {x: 5, y: 8}
   canKnockback: 0
   isKnocked: 0
-  stunDuration: 3
+  stunDuration: 1.5
   canStun: 0
   respawnEffectPrefab: {fileID: 5273175071627268423, guid: 3e17a323467404943bb11cdac388c42d, type: 3}
 --- !u!50 &3943302428168327288

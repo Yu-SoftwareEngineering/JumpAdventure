@@ -33,11 +33,6 @@ public class Trap_FallingPlatform : MonoBehaviour
     {
         RepeatMove();
 
-        if (IsGround())
-        {
-            StartCoroutine(StartDestroy());
-        }
-
         if (delete)
         {
             Color currentColor = sr.color;
@@ -111,25 +106,21 @@ public class Trap_FallingPlatform : MonoBehaviour
     {
         float randomSeconds = Random.Range(0.0f, 2.0f);
         yield return new WaitForSeconds(randomSeconds);
+        // Collider 컴포넌트를 가져옵니다.
+        Collider2D[] colliders = GetComponents<BoxCollider2D>();
+
+        foreach ( Collider2D collider in colliders)
+        {
+            collider.isTrigger = true;
+        }
+
         rb.isKinematic = false;
         rb.gravityScale = 1.5f;
         rb.drag = 0.5f;
+
+        yield return new WaitForSeconds(2.5f);
+        StartCoroutine(StartDestroy());
     }
-
-    // Ground 확인 
-    #region GroundCheck
-
-    private bool IsGround() => Physics2D.Raycast(groundCheck.position, Vector2.down, groundCheckDistance, whatIsGround);
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-
-        Gizmos.DrawLine(groundCheck.position,
-            new Vector2(groundCheck.position.x, groundCheck.position.y - groundCheckDistance));
-    }
-
-    #endregion
 
     // Destroy 로직 함수
     private IEnumerator StartDestroy()

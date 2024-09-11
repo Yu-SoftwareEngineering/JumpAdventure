@@ -1,15 +1,15 @@
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class FireBtn : MonoBehaviour
+public class Trap_FireButton : MonoBehaviour
 {
-    [SerializeField] FireTrap[] FireTraps;
+    [SerializeField] Trap_FireTrap[] FireTraps;
     private Animator anim;
     
     void Awake()
     {
         anim = GetComponent<Animator>();
-        FireTraps = GetComponentsInChildren<FireTrap>();
+        FireTraps = GetComponentsInChildren<Trap_FireTrap>();
     }
 
     void OnTriggerEnter2D(Collider2D other){
@@ -25,7 +25,7 @@ public class FireBtn : MonoBehaviour
             return;
 
         anim.SetBool("BtnPush", true);
-        foreach (FireTrap fireTrap in FireTraps){
+        foreach (Trap_FireTrap fireTrap in FireTraps){
             fireTrap.FireOff();
         }
         

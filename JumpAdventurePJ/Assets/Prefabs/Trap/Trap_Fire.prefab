@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 165478645900311824}
   - component: {fileID: 6990017234114951124}
   - component: {fileID: 1801078055202974848}
-  - component: {fileID: 3480812055337872597}
+  - component: {fileID: 5053905808901970419}
   - component: {fileID: 2732499736915495385}
   m_Layer: 0
-  m_Name: Fire
+  m_Name: Trap_Fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -77,8 +77,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1809477671
-  m_SortingLayer: 4
+  m_SortingLayerID: 142002793
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: -5447121974800146096, guid: 573c22279c1eb734696548dfba41d021, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -137,7 +137,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1.0784364}
   m_EdgeRadius: 0
---- !u!114 &3480812055337872597
+--- !u!114 &5053905808901970419
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -183,7 +183,7 @@ GameObject:
   - component: {fileID: 847241245920816460}
   - component: {fileID: 3160620864778041765}
   - component: {fileID: 5880250793421868675}
-  - component: {fileID: 6426874548515018635}
+  - component: {fileID: 4261665859218249468}
   - component: {fileID: 5590324927388445428}
   - component: {fileID: 1224630760969057120}
   m_Layer: 0
@@ -202,7 +202,7 @@ Transform:
   m_GameObject: {fileID: 5016477393653743358}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.79, y: -0.81, z: 0}
+  m_LocalPosition: {x: 3.93, y: 1.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -285,7 +285,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &6426874548515018635
+--- !u!114 &4261665859218249468
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -344,6 +344,6 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.0032873154, y: 0.46026707}
-  m_Size: {x: 0.69096375, y: 1.0137138}
+  m_Offset: {x: -0.0022104383, y: 0.44377333}
+  m_Size: {x: 0.59200084, y: 0.9147512}
   m_Direction: 0
