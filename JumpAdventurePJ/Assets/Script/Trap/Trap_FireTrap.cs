@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class FireTrap : MonoBehaviour
+public class Trap_FireTrap : MonoBehaviour
 {
     private Animator anim;
     public float fireOffTime = 3;
