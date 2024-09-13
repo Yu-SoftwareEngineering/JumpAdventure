@@ -250,8 +250,5 @@ MonoBehaviour:
   repeatHorizontal: 0
   repeatVertical: 1
   wayPoints: []
-  groundCheck: {fileID: 0}
-  groundCheckDistance: 0.1
-  whatIsGround:
-    serializedVersion: 2
-    m_Bits: 128
+  copyPrefab: {fileID: 899518771887202049}
+  initialPosition: {fileID: 0}
