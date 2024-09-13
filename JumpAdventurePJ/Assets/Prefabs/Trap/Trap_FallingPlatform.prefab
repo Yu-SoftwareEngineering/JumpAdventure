@@ -251,3 +251,4 @@ MonoBehaviour:
   repeatVertical: 1
   wayPoints: []
   copyPrefab: {fileID: 899518771887202049}
+  initialPosition: {fileID: 0}
