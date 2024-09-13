@@ -13,19 +13,28 @@ public class Trap_FallingPlatform : MonoBehaviour
     private bool canRepeatMove = true;
     private int wayPointIndex = 0;
 
-    [Header("GroundCheck info")]
-    [SerializeField] private Transform groundCheck;
-    [SerializeField] private float groundCheckDistance;
-    [SerializeField] private LayerMask whatIsGround;
-
     private bool delete = false;
+
+    [Header("Respawn info")]
+    [SerializeField] private GameObject copyPrefab;
+    private Vector3 initialPosition;
+
 
     Rigidbody2D rb => GetComponent<Rigidbody2D>();
     SpriteRenderer sr => GetComponent<SpriteRenderer>();
 
 
+
     void Start()
     {
+        // 투명도 0 설정
+        Color currentColor = sr.color;
+        currentColor.a = 1f;
+        sr.color = currentColor;
+
+        // 재생성될 Trap_FallingPlatform(Prefab)의 위치
+        initialPosition = transform.position;
+
         SetupWayPoint();
     }
 
@@ -33,6 +42,7 @@ public class Trap_FallingPlatform : MonoBehaviour
     {
         RepeatMove();
 
+        // 투명도를 서서히 높여서 투명하게 만듬
         if (delete)
         {
             Color currentColor = sr.color;
@@ -104,12 +114,12 @@ public class Trap_FallingPlatform : MonoBehaviour
     // 플랫폼 하강 
     private IEnumerator Falling()
     {
-        float randomSeconds = Random.Range(0.0f, 2.0f);
+        float randomSeconds = Random.Range(0.5f, 2.0f);
         yield return new WaitForSeconds(randomSeconds);
-        // Collider 컴포넌트를 가져옵니다.
+        // Collider 컴포넌트를 가져옴
         Collider2D[] colliders = GetComponents<BoxCollider2D>();
 
-        foreach ( Collider2D collider in colliders)
+        foreach (Collider2D collider in colliders)
         {
             collider.isTrigger = true;
         }
@@ -125,11 +135,26 @@ public class Trap_FallingPlatform : MonoBehaviour
     // Destroy 로직 함수
     private IEnumerator StartDestroy()
     {
+        // 소멸 과정 진행
         yield return new WaitForSeconds(0.5f);
         delete = true;
         rb.bodyType = RigidbodyType2D.Static;
         yield return new WaitForSeconds(1f);
         delete = false;
+
+        // 리스폰
+        yield return new WaitForSeconds(3f);
+        GameObject newTrap = Instantiate(copyPrefab, initialPosition, Quaternion.identity);
+        Trap_FallingPlatform newTrapScript = newTrap.GetComponent<Trap_FallingPlatform>();
+
+        // 리스폰될 Prefab에 기존 정보 전달
+        newTrapScript.repeatDistance = this.repeatDistance;
+        newTrapScript.repeatSpeed = this.repeatSpeed;
+        newTrapScript.repeatHorizontal = this.repeatHorizontal;
+        newTrapScript.repeatVertical = this.repeatVertical;
+
         Destroy(gameObject);
     }
+
+
 }

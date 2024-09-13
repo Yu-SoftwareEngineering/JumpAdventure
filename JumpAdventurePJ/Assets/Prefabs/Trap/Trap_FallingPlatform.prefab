@@ -245,13 +245,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f33a0d0bfc794b4aaba6790b9129ca0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  repeatDistance: 1.5
-  repeatSpeed: 1
+  repeatDistance: 6
+  repeatSpeed: 1.2
   repeatHorizontal: 0
   repeatVertical: 1
   wayPoints: []
-  groundCheck: {fileID: 0}
-  groundCheckDistance: 0.1
-  whatIsGround:
-    serializedVersion: 2
-    m_Bits: 128
+  copyPrefab: {fileID: 899518771887202049}
