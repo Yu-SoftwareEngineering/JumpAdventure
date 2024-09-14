@@ -46,6 +46,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   playerPrefab: {fileID: 5026698707843350343, guid: 968a5cba34f70754a927d88ed477fdb2, type: 3}
-  respwanPoint: {fileID: 0}
-  respawnDelay: 3
+  respawnPoint: {fileID: 0}
+  respawnDelay: 1.5
+  totalFruits: 0
+  fruitsCollected: 0
+  fruitsRandomLook: 0
   cine: {fileID: 0}
