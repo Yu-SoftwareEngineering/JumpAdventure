@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class UI_Credits : MonoBehaviour
 {
@@ -9,6 +10,13 @@ public class UI_Credits : MonoBehaviour
 
     private bool creditsSkipped;
 
+    private UI_FadeEffect fadeEffect => GetComponentInChildren<UI_FadeEffect>();
+
+    private void Awake()
+    {
+        fadeEffect.ScreenFade(0, 2f);
+    }
+
     private void Update()
     {
         // Credits 오브젝트 끌어올리기
@@ -16,7 +24,7 @@ public class UI_Credits : MonoBehaviour
 
         if (rect.anchoredPosition.y > offScreenPosition)
         {
-            GoToMainMenu();
+            StartCoroutine(GoToMainMenu());
         }
     }
 
@@ -30,13 +38,16 @@ public class UI_Credits : MonoBehaviour
         }
         else
         {
-            GoToMainMenu();
+            fadeEffect.ScreenFade(1, 1f);
+            SceneManager.LoadScene("MainMenu");
         }
     }
 
     // 메인 메뉴 이동 함수
-    private void GoToMainMenu()
+    private IEnumerator GoToMainMenu()
     {
+        fadeEffect.ScreenFade(1, 2f);
+        yield return new WaitForSeconds(2f);
         SceneManager.LoadScene("MainMenu");
     }
 
