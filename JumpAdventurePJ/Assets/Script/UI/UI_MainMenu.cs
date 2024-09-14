@@ -6,6 +6,7 @@ public class UI_MainMenu : MonoBehaviour
 {
     public string sceneName;
 
+    [SerializeField] private GameObject[] uiElements;
     private UI_FadeEffect fadeEffect => GetComponentInChildren<UI_FadeEffect>();
 
 
@@ -26,4 +27,14 @@ public class UI_MainMenu : MonoBehaviour
         SceneManager.LoadScene(sceneName);
     }
 
+    public void SwitchUI(GameObject uiToEnable)
+    {
+        foreach (GameObject ui in uiElements)
+        {
+            // 다른 UI 모두 비활성화
+            ui.SetActive(false);
+        }
+
+        uiToEnable.SetActive(true);
+    }
 }
