@@ -14,6 +14,9 @@ public class FinishPoint : MonoBehaviour
             {
                 anim.SetTrigger("Active");
                 Debug.Log(" Level is Finished ");
+
+                // 클리어시 레벨 이동 
+                StartCoroutine(GameManager.instance.MoveToEndScene());
             }
         }
 

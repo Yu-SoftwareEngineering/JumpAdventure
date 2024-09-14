@@ -1,6 +1,7 @@
 using System.Collections;
 using Unity.Cinemachine;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -70,4 +71,19 @@ public class GameManager : MonoBehaviour
     }
 
     #endregion
+
+
+    #region Scene
+
+    public IEnumerator MoveToEndScene()
+    {
+        yield return new WaitForSeconds(3f);
+
+        if (SceneManager.GetActiveScene().name == "Level_1")
+            SceneManager.LoadScene("TheEnd");
+    }
+
+    #endregion
+
+
 }
