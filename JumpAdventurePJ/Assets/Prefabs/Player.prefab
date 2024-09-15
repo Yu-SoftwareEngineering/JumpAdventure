@@ -242,6 +242,10 @@ MonoBehaviour:
   stunDuration: 1.5
   canStun: 0
   respawnEffectPrefab: {fileID: 5273175071627268423, guid: 3e17a323467404943bb11cdac388c42d, type: 3}
+  animators:
+  - {fileID: 22100000, guid: 7295e947ada076b4181408d2b48cb51d, type: 2}
+  - {fileID: 22100000, guid: d597538199df1c945be5b996cb3e44e9, type: 2}
+  - {fileID: 22100000, guid: b5554c7916073e04b85068296b98a27e, type: 2}
 --- !u!50 &3943302428168327288
 Rigidbody2D:
   serializedVersion: 4
