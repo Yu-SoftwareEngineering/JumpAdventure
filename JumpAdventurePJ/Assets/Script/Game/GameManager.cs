@@ -20,10 +20,15 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private CinemachineCamera cine;
 
+    [Header("Level Management")]
+    [SerializeField] private int currentLevelIndex;
+    private int nexLevelIndex;
+
+
     private void Awake()
     {
-        // instance 객체가 두개이상 존재하지 않게 함.
-        if(instance == null)
+        // instance ????? ?????? ???????? ??? ??.
+        if (instance == null)
         {
             instance = this;
         }
@@ -36,6 +41,9 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         CollectFruitsInfo();
+        currentLevelIndex = SceneManager.GetActiveScene().buildIndex;
+        nexLevelIndex = currentLevelIndex + 1;
+
     }
 
     public void RespawnPlayer() => StartCoroutine(RespawnLogic());
@@ -49,7 +57,7 @@ public class GameManager : MonoBehaviour
         cine.Follow = player.transform;
     }
 
-    // 리스폰 위치 업데이트 함수
+    // ?????? ??? ??????? ???
     public void UpdateRespawnPosition(Transform _newRespawnPoint)
     {
         respawnPoint = _newRespawnPoint;
@@ -57,13 +65,13 @@ public class GameManager : MonoBehaviour
 
     #region Fruits
 
-    // 과일 개수 증가 함수
+    // ???? ???? ???? ???
     public void AddFruit() => fruitsCollected++;
 
-    // 과일 랜덤
+    // ???? ????
     public bool FruitsRandomLook() => fruitsRandomLook;
 
-    // 맵내의 과일 총 개수 자동계산
+    // ????? ???? ?? ???? ??????
     private void CollectFruitsInfo()
     {
         Fruit[] allFruits = FindObjectsByType<Fruit>(FindObjectsSortMode.None);
@@ -84,6 +92,37 @@ public class GameManager : MonoBehaviour
     }
 
     #endregion
+
+    #region Level
+
+    public void LevelFinished()
+    {
+        StartCoroutine(LoadNextScene());
+    }
+
+    private IEnumerator LoadNextScene()
+    {
+
+        UI_InGame.instance.fadeEffect.ScreenFade(1, 3f);
+        yield return new WaitForSeconds(3f);
+
+        // 마지막 레벨인지 확인하는 Bool
+        bool noMoreLevels = nexLevelIndex == SceneManager.sceneCountInBuildSettings - 1;
+
+        // TheEnd Scene 이동
+        if (noMoreLevels)
+        {
+            SceneManager.LoadScene("TheEnd");
+        }
+        // 다음 Level 이동
+        else
+        {
+            SceneManager.LoadScene("Level_" + nexLevelIndex);
+        }
+    }
+
+    #endregion
+
 
 
 }
