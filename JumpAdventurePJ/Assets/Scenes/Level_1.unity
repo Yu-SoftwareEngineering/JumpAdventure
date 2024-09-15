@@ -1680,7 +1680,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8343857992596577901, guid: 6ef88bf525b434d4fbc63cbbd3db6aa6, type: 3}
       propertyPath: m_Name
-      value: FadeUI
+      value: UI_InGame
       objectReference: {fileID: 0}
     - target: {fileID: 9206991489470877975, guid: 6ef88bf525b434d4fbc63cbbd3db6aa6, type: 3}
       propertyPath: m_Pivot.x
@@ -2079,7 +2079,7 @@ Transform:
   m_GameObject: {fileID: 1216791913}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.4138327, y: -1.2814602, z: -10}
+  m_LocalPosition: {x: -2.4273567, y: -1.2814602, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
