@@ -15,9 +15,6 @@ public class FinishPoint : MonoBehaviour
                 anim.SetTrigger("Active");
                 Debug.Log(" Level is Finished ");
                 GameManager.instance.LevelFinished();
-
-                // Ŭ����� ���� �̵� 
-                StartCoroutine(GameManager.instance.MoveToEndScene());
             }
         }
 
