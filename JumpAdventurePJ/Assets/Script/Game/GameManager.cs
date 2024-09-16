@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
     [Header("Level Management")]
     [SerializeField] private int currentLevelIndex;
     private int nexLevelIndex;
-
+    [SerializeField] private float levelTimer;
 
     private void Awake()
     {
@@ -46,6 +46,12 @@ public class GameManager : MonoBehaviour
 
     }
 
+    private void Update()
+    {
+        levelTimer += Time.deltaTime;
+	    UI_InGame.instance.UpdateTimerUI (levelTimer);
+    }
+
     public void RespawnPlayer() => StartCoroutine(RespawnLogic());
 
     private IEnumerator RespawnLogic()
@@ -66,7 +72,11 @@ public class GameManager : MonoBehaviour
     #region Fruits
 
     // ???? ???? ???? ???
-    public void AddFruit() => fruitsCollected++;
+    public void AddFruit()
+    {
+        fruitsCollected++;
+        UI_InGame.instance.UpdateFruitUI(fruitsCollected, totalFruits);
+    }
 
     // ???? ????
     public bool FruitsRandomLook() => fruitsRandomLook;
@@ -97,6 +107,7 @@ public class GameManager : MonoBehaviour
 
     public void LevelFinished()
     {
+        PlayerPrefs.SetInt("Level_" + currentLevelIndex + "Unlocked" , 1);
         StartCoroutine(LoadNextScene());
     }
 
@@ -106,15 +117,15 @@ public class GameManager : MonoBehaviour
         UI_InGame.instance.fadeEffect.ScreenFade(1, 3f);
         yield return new WaitForSeconds(3f);
 
-        // ¸¶Áö¸· ·¹º§ÀÎÁö È®ÀÎÇÏ´Â Bool
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ï¿½Ï´ï¿½ Bool
         bool noMoreLevels = nexLevelIndex == SceneManager.sceneCountInBuildSettings - 1;
 
-        // TheEnd Scene ÀÌµ¿
+        // TheEnd Scene ï¿½Ìµï¿½
         if (noMoreLevels)
         {
             SceneManager.LoadScene("TheEnd");
         }
-        // ´ÙÀ½ Level ÀÌµ¿
+        // ï¿½ï¿½ï¿½ï¿½ Level ï¿½Ìµï¿½
         else
         {
             SceneManager.LoadScene("Level_" + nexLevelIndex);
