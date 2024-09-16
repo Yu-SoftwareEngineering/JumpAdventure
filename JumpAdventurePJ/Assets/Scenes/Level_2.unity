@@ -3402,7 +3402,7 @@ MonoBehaviour:
       Enabled: 1
       Size: {x: 0.15, y: 0.25}
     HardLimits:
-      Enabled: 1
+      Enabled: 0
       Size: {x: 0.6, y: 0.7}
       Offset: {x: 0, y: 0}
   CenterOnActivate: 1
