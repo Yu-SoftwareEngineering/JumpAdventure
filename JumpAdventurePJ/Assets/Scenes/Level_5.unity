@@ -133,11 +133,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 73344189292705894, guid: 0cb048530668b6545954195842f0df7c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.09
+      value: -0.06
       objectReference: {fileID: 0}
     - target: {fileID: 73344189292705894, guid: 0cb048530668b6545954195842f0df7c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -9.07
+      value: -9.16
       objectReference: {fileID: 0}
     - target: {fileID: 73344189292705894, guid: 0cb048530668b6545954195842f0df7c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1437,7 +1437,7 @@ MonoBehaviour:
       Enabled: 1
       Size: {x: 0.15, y: 0.25}
     HardLimits:
-      Enabled: 1
+      Enabled: 0
       Size: {x: 0.6, y: 0.7}
       Offset: {x: 0, y: 0}
   CenterOnActivate: 1

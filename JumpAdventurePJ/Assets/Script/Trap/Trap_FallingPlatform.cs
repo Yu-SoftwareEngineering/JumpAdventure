@@ -129,6 +129,7 @@ public class Trap_FallingPlatform : MonoBehaviour
         rb.drag = 0.5f;
 
         yield return new WaitForSeconds(2.5f);
+        colliders[0].isTrigger = false;
         StartCoroutine(StartDestroy());
     }
 
