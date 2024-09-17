@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         levelTimer += Time.deltaTime;
-	    UI_InGame.instance.UpdateTimerUI (levelTimer);
+        UI_InGame.instance.UpdateTimerUI(levelTimer);
     }
 
     public void RespawnPlayer() => StartCoroutine(RespawnLogic());
@@ -107,7 +107,11 @@ public class GameManager : MonoBehaviour
 
     public void LevelFinished()
     {
-        PlayerPrefs.SetInt("Level_" + currentLevelIndex + "Unlocked" , 1);
+
+        PlayerPrefs.SetInt("Level_" + currentLevelIndex + "Unlocked", 1);
+
+        SaveBestTime();
+        SaveFruitsInfo();
         StartCoroutine(LoadNextScene());
     }
 
@@ -117,15 +121,15 @@ public class GameManager : MonoBehaviour
         UI_InGame.instance.fadeEffect.ScreenFade(1, 3f);
         yield return new WaitForSeconds(3f);
 
-        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ï¿½Ï´ï¿½ Bool
+        // ?????? ???????? ?????? Bool
         bool noMoreLevels = nexLevelIndex == SceneManager.sceneCountInBuildSettings - 1;
 
-        // TheEnd Scene ï¿½Ìµï¿½
+        // TheEnd Scene ???
         if (noMoreLevels)
         {
             SceneManager.LoadScene("TheEnd");
         }
-        // ï¿½ï¿½ï¿½ï¿½ Level ï¿½Ìµï¿½
+        // ???? Level ???
         else
         {
             SceneManager.LoadScene("Level_" + nexLevelIndex);
@@ -133,6 +137,39 @@ public class GameManager : MonoBehaviour
     }
 
     #endregion
+
+    // Å¬¸®¾î ½Ã°£ ÀúÀå
+    private void SaveBestTime()
+    {
+        float ClearTimeBefore = PlayerPrefs.GetFloat("Level_" + currentLevelIndex + "BestTime", 999);
+
+        // ÀÌÀü È¸Â÷ Å¬¸®¾îÅ¸ÀÓº¸´Ù ºü¸¦½Ã 
+        if (levelTimer < ClearTimeBefore)
+            PlayerPrefs.SetFloat("Level_" + currentLevelIndex + "BestTime", levelTimer);
+    }
+
+
+    // °úÀÏ Á¤º¸ ÀúÀå
+    private void SaveFruitsInfo()
+    {
+        // PlayerPrefs¿¡ ÇöÀç ·¹º§ ¸ÊÀÇ ÃÑ °úÀÏ¼ö ÀúÀå
+        PlayerPrefs.SetInt("Level_" + currentLevelIndex + "TotalFruits", totalFruits);
+
+        // ÀÌÀü È¸Â÷¿¡¼­ È¹µæÇÑ °úÀÏ¼ö
+        int fruitsCollectedBefore = PlayerPrefs.GetInt("Level_" + currentLevelIndex + "FruitsCollected");
+
+        if (fruitsCollectedBefore < fruitsCollected)
+        {
+            PlayerPrefs.SetInt("Level_" + currentLevelIndex + "FruitsCollected", fruitsCollected);
+        }
+
+        // ÀºÇà¿¡ ¼öÁýÇÑ °úÀÏ 
+        int FruitsInBankBefore = PlayerPrefs.GetInt("FruitsInBank");
+
+        PlayerPrefs.SetInt("FruitsInBank", FruitsInBankBefore + fruitsCollected);
+    }
+
+
 
 
 
