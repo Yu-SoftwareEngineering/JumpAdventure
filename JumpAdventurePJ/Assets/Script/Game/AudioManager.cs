@@ -4,6 +4,7 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance;
     [Header("Audio Source")]
+    [SerializeField] private AudioSource[] bgm;
     [SerializeField] private AudioSource[] sfx;
 
     private void Awake()
@@ -18,6 +19,13 @@ public class AudioManager : MonoBehaviour
             Destroy(this.gameObject);
     }
 
+    public void PlayBGM(int bgmToPlay)
+    {
+        for (int i = 0; i < bgm.Length; i++)
+            bgm[i].Stop();
+
+        bgm[bgmToPlay].Play();
+    }
 
     public void PlaySFX(int sfxToPlay, bool randomPitch = false)
     {
