@@ -11,6 +11,7 @@ public class PlayerWallJumpState : PlayerState
     public override void Enter()
     {
         AudioManager.instance.PlaySFX(4,true);
+        player.dustFx.Play();
         base.Enter();
 
         // PlayerState에서 상속받은 stateTimer[계속해서 감소하는 타이머]
