@@ -347,7 +347,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.24528301, g: 0.24528301, b: 0.24528301, a: 1}
+  m_Color: {r: 0.24528301, g: 0.24528301, b: 0.24528301, a: 0.8235294}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -720,11 +720,11 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.23137255, g: 0.18431373, b: 0.18431373, a: 0.6862745}
-    m_HighlightedColor: {r: 0.23137255, g: 0.18431373, b: 0.18431373, a: 0.74509805}
-    m_PressedColor: {r: 0.23137255, g: 0.18431373, b: 0.18431373, a: 0.78431374}
-    m_SelectedColor: {r: 0.23137255, g: 0.18431373, b: 0.18431373, a: 0.78431374}
-    m_DisabledColor: {r: 0.23137255, g: 0.18431373, b: 0.18431373, a: 0.6862745}
+    m_NormalColor: {r: 0.11764706, g: 0.11764706, b: 0.11764706, a: 0.74509805}
+    m_HighlightedColor: {r: 0, g: 0, b: 0, a: 0.9019608}
+    m_PressedColor: {r: 0, g: 0, b: 0, a: 0.9019608}
+    m_SelectedColor: {r: 0, g: 0, b: 0, a: 0.9019608}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.50980395}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -853,11 +853,11 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.23137255, g: 0.18431373, b: 0.18431373, a: 0.6862745}
-    m_HighlightedColor: {r: 0.23137255, g: 0.18431373, b: 0.18431373, a: 0.74509805}
-    m_PressedColor: {r: 0.23137255, g: 0.18431373, b: 0.18431373, a: 0.78431374}
-    m_SelectedColor: {r: 0.23137255, g: 0.18431373, b: 0.18431373, a: 0.78431374}
-    m_DisabledColor: {r: 0.23137255, g: 0.18431373, b: 0.18431373, a: 0.6862745}
+    m_NormalColor: {r: 0.11764706, g: 0.11764706, b: 0.11764706, a: 0.74509805}
+    m_HighlightedColor: {r: 0, g: 0, b: 0, a: 0.9019608}
+    m_PressedColor: {r: 0, g: 0, b: 0, a: 0.9019608}
+    m_SelectedColor: {r: 0, g: 0, b: 0, a: 0.9019608}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.50980395}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
