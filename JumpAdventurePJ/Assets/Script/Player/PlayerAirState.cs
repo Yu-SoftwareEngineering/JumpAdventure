@@ -67,6 +67,7 @@ public class PlayerAirState : PlayerState
         if (player.canFallJump == true)
         {
             AudioManager.instance.PlaySFX(4, true);
+            player.dustFx.Play();
             player.SetVelocity(rb.velocity.x * 2, player.fallJumpForce);
             player.canFallJump = false;
         }

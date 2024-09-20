@@ -61,6 +61,8 @@ public class Player : MonoBehaviour
     public int facingDir { get; private set; } = 1;
     private bool facingRight = true;
 
+    public ParticleSystem dustFx;
+
     private void Awake()
     {
         // stateMachine
@@ -81,6 +83,8 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponentInChildren<Animator>();
         sr = GetComponentInChildren<SpriteRenderer>();
+
+        dustFx = GetComponentInChildren<ParticleSystem>();
     }
 
 
@@ -110,7 +114,8 @@ public class Player : MonoBehaviour
     {
         if (canDoubleJump && IsGroundDetected() == false)
         {
-            AudioManager.instance.PlaySFX(4 , true);
+            AudioManager.instance.PlaySFX(4, true);
+            dustFx.Play();
             SetVelocity(rb.velocity.x, doubleJumpForce);
             canDoubleJump = false;
         }
@@ -221,6 +226,24 @@ public class Player : MonoBehaviour
             return;
 
         anim.runtimeAnimatorController = animators[skinManager.choosenSkinId];
+    }
+
+    #endregion
+
+    #region FX
+
+    public void PlayDustEffect()
+    {
+        StartCoroutine(DustEffect());
+    }
+
+    private IEnumerator DustEffect()
+    {
+        while (stateMachine.currentState == moveState)
+        {
+            dustFx.Play();
+            yield return new WaitForSeconds(2f); // 딜레이
+        }
     }
 
     #endregion
