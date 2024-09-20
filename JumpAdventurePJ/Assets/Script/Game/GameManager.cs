@@ -128,10 +128,12 @@ public class GameManager : MonoBehaviour
         if (noMoreLevels)
         {
             SceneManager.LoadScene("TheEnd");
+            AudioManager.instance.PlayBGM(6);
         }
         // ???? Level ???
         else
         {
+            AudioManager.instance.PlayBGM(nexLevelIndex-1);
             SceneManager.LoadScene("Level_" + nexLevelIndex);
         }
     }

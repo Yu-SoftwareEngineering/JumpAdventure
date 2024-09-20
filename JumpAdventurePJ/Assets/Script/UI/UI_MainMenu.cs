@@ -13,12 +13,13 @@ public class UI_MainMenu : MonoBehaviour
     private void Start()
     {
         fadeEffect.ScreenFade(0, 1.5f);
+        AudioManager.instance.PlayBGM(5);
     }
 
     public void NewGame()
     {
         StartCoroutine(StartNewGame());
-        AudioManager.instance.PlaySFX(10); 
+        AudioManager.instance.PlaySFX(10);
     }
 
     private IEnumerator StartNewGame()
@@ -26,6 +27,7 @@ public class UI_MainMenu : MonoBehaviour
         fadeEffect.ScreenFade(1, 1.5f);
         yield return new WaitForSeconds(1.5f);
         SceneManager.LoadScene(sceneName);
+        AudioManager.instance.PlayBGM(0);
     }
 
     public void SwitchUI(GameObject uiToEnable)
@@ -37,6 +39,6 @@ public class UI_MainMenu : MonoBehaviour
         }
 
         uiToEnable.SetActive(true);
-        AudioManager.instance.PlaySFX(9); 
+        AudioManager.instance.PlaySFX(9);
     }
 }
