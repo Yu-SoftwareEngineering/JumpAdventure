@@ -8,11 +8,12 @@ public class UI_MainMenu : MonoBehaviour
 
     [SerializeField] private GameObject[] uiElements;
     private UI_FadeEffect fadeEffect => GetComponentInChildren<UI_FadeEffect>();
-
+    [SerializeField] private UI_Setting setting;
 
     private void Start()
     {
         fadeEffect.ScreenFade(0, 1.5f);
+        loadSetting();
         AudioManager.instance.PlayBGM(5);
     }
 
@@ -40,5 +41,11 @@ public class UI_MainMenu : MonoBehaviour
 
         uiToEnable.SetActive(true);
         AudioManager.instance.PlaySFX(9);
+    }
+
+    private void loadSetting()
+    {
+        setting.sfxSlider.value = PlayerPrefs.GetFloat(setting.sfxParameter, 0.6f);
+        setting.bgmSlider.value = PlayerPrefs.GetFloat(setting.bgmParameter, 0.6f);
     }
 }

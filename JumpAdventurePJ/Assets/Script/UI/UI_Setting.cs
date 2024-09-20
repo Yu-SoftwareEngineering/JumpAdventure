@@ -18,6 +18,18 @@ public class UI_Setting : MonoBehaviour
     [SerializeField] private TextMeshProUGUI bgmSliderText;
     [SerializeField] public string bgmParameter;
 
+     private void OnDisable()
+    {
+        PlayerPrefs.SetFloat(sfxParameter, sfxSlider.value);
+        PlayerPrefs.SetFloat(bgmParameter, bgmSlider.value);
+    }
+
+    private void OnEnable()
+    {
+        sfxSlider.value = PlayerPrefs.GetFloat(sfxParameter, 0.6f);
+        bgmSlider.value = PlayerPrefs.GetFloat(bgmParameter, 0.6f);
+    }
+    
     // SFX 슬라이더 값 조정
     public void SFXSliderValue(float value)
     {
@@ -33,18 +45,5 @@ public class UI_Setting : MonoBehaviour
         float newValue = Mathf.Log10(value) * mixerMultiplier;
         audioMixer.SetFloat(bgmParameter, newValue);
     }
-
-    private void OnDisable()
-    {
-        PlayerPrefs.SetFloat(sfxParameter, sfxSlider.value);
-        PlayerPrefs.SetFloat(bgmParameter, bgmSlider.value);
-    }
-
-    private void OnEnable()
-    {
-        sfxSlider.value = PlayerPrefs.GetFloat(sfxParameter, 0.6f);
-        bgmSlider.value = PlayerPrefs.GetFloat(bgmParameter, 0.6f);
-    }
-
 
 }
