@@ -128,6 +128,8 @@ public class Trap_FallingPlatform : MonoBehaviour
         rb.gravityScale = 1.5f;
         rb.drag = 0.5f;
 
+        AudioManager.instance.PlaySFX(1, true);
+
         yield return new WaitForSeconds(2.5f);
         colliders[0].isTrigger = false;
         StartCoroutine(StartDestroy());

@@ -14,7 +14,7 @@ public class PlayerAirState : PlayerState
         base.Enter();
 
         // 점프x && 떨어져서 공중(AirState) 상태로 왔을 경우
-        if (player.isJumped == false) 
+        if (player.isJumped == false)
         {
             player.canFallJump = true;
         }
@@ -38,7 +38,7 @@ public class PlayerAirState : PlayerState
         }
 
         // 더블 점프
-        if (Input.GetKeyDown(KeyCode.Space) && !player.isRespawning) 
+        if (Input.GetKeyDown(KeyCode.Space) && !player.isRespawning)
         {
             // 땅에서 떨어져서 Air상태로 왔을 경우 1회 점프
             FallJump();
@@ -62,10 +62,11 @@ public class PlayerAirState : PlayerState
         player.isJumped = false;
     }
 
-    private void FallJump() 
+    private void FallJump()
     {
-        if (player.canFallJump == true) 
+        if (player.canFallJump == true)
         {
+            AudioManager.instance.PlaySFX(4, true);
             player.SetVelocity(rb.velocity.x * 2, player.fallJumpForce);
             player.canFallJump = false;
         }

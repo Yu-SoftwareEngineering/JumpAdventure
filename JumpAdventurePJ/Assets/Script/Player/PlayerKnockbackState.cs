@@ -10,6 +10,7 @@ public class PlayerKnockbackState : PlayerState
 
     public override void Enter()
     {
+        AudioManager.instance.PlaySFX(5);
         base.Enter();
 
         // ณหน้ ป๓ลย 

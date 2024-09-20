@@ -10,6 +10,7 @@ public class Deadzone : MonoBehaviour
         {
             // 플레이어 죽음
             player.Die();
+            AudioManager.instance.PlaySFX(0);
 
             // 플레이어 리스폰
             GameManager.instance.RespawnPlayer();
