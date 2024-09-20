@@ -10,6 +10,7 @@ public class PlayerJumpState : PlayerState
 
     public override void Enter()
     {
+        AudioManager.instance.PlaySFX(4 , true);
         base.Enter();
 
         // 점프 velocity 부여

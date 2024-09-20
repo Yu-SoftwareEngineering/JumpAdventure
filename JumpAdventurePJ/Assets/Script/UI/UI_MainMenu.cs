@@ -18,6 +18,7 @@ public class UI_MainMenu : MonoBehaviour
     public void NewGame()
     {
         StartCoroutine(StartNewGame());
+        AudioManager.instance.PlaySFX(10); 
     }
 
     private IEnumerator StartNewGame()
@@ -36,5 +37,6 @@ public class UI_MainMenu : MonoBehaviour
         }
 
         uiToEnable.SetActive(true);
+        AudioManager.instance.PlaySFX(9); 
     }
 }

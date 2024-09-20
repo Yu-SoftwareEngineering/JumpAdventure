@@ -18,6 +18,7 @@ public class CheckPoint : MonoBehaviour
 
         if (player != null )
         {
+            AudioManager.instance.PlaySFX(12);
             ActivateCheckPoint();
         }
 

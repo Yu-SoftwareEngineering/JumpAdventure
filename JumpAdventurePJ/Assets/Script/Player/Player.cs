@@ -110,6 +110,7 @@ public class Player : MonoBehaviour
     {
         if (canDoubleJump && IsGroundDetected() == false)
         {
+            AudioManager.instance.PlaySFX(4 , true);
             SetVelocity(rb.velocity.x, doubleJumpForce);
             canDoubleJump = false;
         }

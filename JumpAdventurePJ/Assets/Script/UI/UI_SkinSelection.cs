@@ -94,6 +94,7 @@ public class UI_SkinSelection : MonoBehaviour
             PlayerPrefs.SetInt(skinList[currentIndex].skinName + "Unlocked", 1);
             skinList[currentIndex].unlocked = true;
             SwitchBuyUI();
+            AudioManager.instance.PlaySFX(11);
         }
     }
 
@@ -107,6 +108,7 @@ public class UI_SkinSelection : MonoBehaviour
             currentIndex = 0;
 
         UpdateSkinDisplay();
+        AudioManager.instance.PlaySFX(11);
     }
 
     // 왼쪽 "<" 버튼 
@@ -118,6 +120,7 @@ public class UI_SkinSelection : MonoBehaviour
             currentIndex = maxIndex;
 
         UpdateSkinDisplay();
+        AudioManager.instance.PlaySFX(11);
     }
 
     // Select 버튼 클릭시, 현재 스킨 인덱스인 currentIndex를 SkinManager로 전달
