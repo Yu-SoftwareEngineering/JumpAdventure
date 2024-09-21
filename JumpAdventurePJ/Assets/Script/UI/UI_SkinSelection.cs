@@ -129,4 +129,13 @@ public class UI_SkinSelection : MonoBehaviour
         SkinManager.instance.SetSkinId(currentIndex);
     }
 
+
+    public void ResetSkinIndex()
+    {
+        currentIndex = 0;
+        UpdateSkinDisplay();
+        SwitchBuyUI();
+    }
+
+
 }
