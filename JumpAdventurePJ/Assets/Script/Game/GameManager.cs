@@ -1,6 +1,7 @@
 using System.Collections;
 using Unity.Cinemachine;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -19,10 +20,15 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private CinemachineCamera cine;
 
+    [Header("Level Management")]
+    [SerializeField] private int currentLevelIndex;
+    private int nexLevelIndex;
+    [SerializeField] private float levelTimer;
+
     private void Awake()
     {
-        // instance 객체가 두개이상 존재하지 않게 함.
-        if(instance == null)
+        // instance ????? ?????? ???????? ??? ??.
+        if (instance == null)
         {
             instance = this;
         }
@@ -35,6 +41,15 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         CollectFruitsInfo();
+        currentLevelIndex = SceneManager.GetActiveScene().buildIndex;
+        nexLevelIndex = currentLevelIndex + 1;
+
+    }
+
+    private void Update()
+    {
+        levelTimer += Time.deltaTime;
+        UI_InGame.instance.UpdateTimerUI(levelTimer);
     }
 
     public void RespawnPlayer() => StartCoroutine(RespawnLogic());
@@ -48,7 +63,7 @@ public class GameManager : MonoBehaviour
         cine.Follow = player.transform;
     }
 
-    // 리스폰 위치 업데이트 함수
+    // ?????? ??? ??????? ???
     public void UpdateRespawnPosition(Transform _newRespawnPoint)
     {
         respawnPoint = _newRespawnPoint;
@@ -56,13 +71,17 @@ public class GameManager : MonoBehaviour
 
     #region Fruits
 
-    // 과일 개수 증가 함수
-    public void AddFruit() => fruitsCollected++;
+    // ???? ???? ???? ???
+    public void AddFruit()
+    {
+        fruitsCollected++;
+        UI_InGame.instance.UpdateFruitUI(fruitsCollected, totalFruits);
+    }
 
-    // 과일 랜덤
+    // ???? ????
     public bool FruitsRandomLook() => fruitsRandomLook;
 
-    // 맵내의 과일 총 개수 자동계산
+    // ????? ???? ?? ???? ??????
     private void CollectFruitsInfo()
     {
         Fruit[] allFruits = FindObjectsByType<Fruit>(FindObjectsSortMode.None);
@@ -70,4 +89,90 @@ public class GameManager : MonoBehaviour
     }
 
     #endregion
+
+
+    #region Scene
+
+    public IEnumerator MoveToEndScene()
+    {
+        yield return new WaitForSeconds(3f);
+
+        if (SceneManager.GetActiveScene().name == "Level_1")
+            SceneManager.LoadScene("TheEnd");
+    }
+
+    #endregion
+
+    #region Level
+
+    public void LevelFinished()
+    {
+
+        PlayerPrefs.SetInt("Level_" + currentLevelIndex + "Unlocked", 1);
+
+        SaveBestTime();
+        SaveFruitsInfo();
+        StartCoroutine(LoadNextScene());
+    }
+
+    private IEnumerator LoadNextScene()
+    {
+
+        UI_InGame.instance.fadeEffect.ScreenFade(1, 3f);
+        yield return new WaitForSeconds(3f);
+
+        // ?????? ???????? ?????? Bool
+        bool noMoreLevels = nexLevelIndex == SceneManager.sceneCountInBuildSettings - 1;
+
+        // TheEnd Scene ???
+        if (noMoreLevels)
+        {
+            SceneManager.LoadScene("TheEnd");
+            AudioManager.instance.PlayBGM(6);
+        }
+        // ???? Level ???
+        else
+        {
+            AudioManager.instance.PlayBGM(nexLevelIndex-1);
+            SceneManager.LoadScene("Level_" + nexLevelIndex);
+        }
+    }
+
+    #endregion
+
+    // 클리어 시간 저장
+    private void SaveBestTime()
+    {
+        float ClearTimeBefore = PlayerPrefs.GetFloat("Level_" + currentLevelIndex + "BestTime", 999);
+
+        // 이전 회차 클리어타임보다 빠를시 
+        if (levelTimer < ClearTimeBefore)
+            PlayerPrefs.SetFloat("Level_" + currentLevelIndex + "BestTime", levelTimer);
+    }
+
+
+    // 과일 정보 저장
+    private void SaveFruitsInfo()
+    {
+        // PlayerPrefs에 현재 레벨 맵의 총 과일수 저장
+        PlayerPrefs.SetInt("Level_" + currentLevelIndex + "TotalFruits", totalFruits);
+
+        // 이전 회차에서 획득한 과일수
+        int fruitsCollectedBefore = PlayerPrefs.GetInt("Level_" + currentLevelIndex + "FruitsCollected");
+
+        if (fruitsCollectedBefore < fruitsCollected)
+        {
+            PlayerPrefs.SetInt("Level_" + currentLevelIndex + "FruitsCollected", fruitsCollected);
+        }
+
+        // 은행에 수집한 과일 
+        int FruitsInBankBefore = PlayerPrefs.GetInt("FruitsInBank");
+
+        PlayerPrefs.SetInt("FruitsInBank", FruitsInBankBefore + fruitsCollected);
+    }
+
+
+
+
+
 }
