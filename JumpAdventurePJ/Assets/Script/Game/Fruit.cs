@@ -30,6 +30,7 @@ public class Fruit : MonoBehaviour
         {
             gameManager.AddFruit();
             GameObject newFX = Instantiate(pickUpFX,transform.position,Quaternion.identity);
+            AudioManager.instance.PlaySFX(3 , true);
             Destroy(gameObject);
         }
 

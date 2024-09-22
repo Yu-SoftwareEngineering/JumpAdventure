@@ -33,6 +33,7 @@ public class Trap_Trampoline : MonoBehaviour
             }
 
             lastPushTime = Time.time;
+            AudioManager.instance.PlaySFX(8 , true);
             StartCoroutine(Push());
         }
     }

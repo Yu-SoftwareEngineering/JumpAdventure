@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
     public PlayerMoveState moveState;
     public PlayerJumpState jumpState;
     public PlayerAirState airState;
-    public PlayerWallSlideState wallSlideState; 
+    public PlayerWallSlideState wallSlideState;
     public PlayerWallJumpState wallJumpState;
     public PlayerKnockbackState knockbackState;
     public PlayerStunnedState stunnedState;
@@ -27,7 +27,7 @@ public class Player : MonoBehaviour
 
     [Header("Move info")]
     [SerializeField] public float moveSpeed;
-    [SerializeField] public float jumpForce; 
+    [SerializeField] public float jumpForce;
     [SerializeField] public float doubleJumpForce;
     [SerializeField] public float fallJumpForce;
     [NonSerialized] public bool canDoubleJump;
@@ -55,8 +55,13 @@ public class Player : MonoBehaviour
     [SerializeField] GameObject respawnEffectPrefab;
     [NonSerialized] public bool isRespawning;
 
+    [Header("Skin info")]
+    [SerializeField] private AnimatorOverrideController[] animators;
+
     public int facingDir { get; private set; } = 1;
     private bool facingRight = true;
+
+    public ParticleSystem dustFx;
 
     private void Awake()
     {
@@ -78,11 +83,16 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponentInChildren<Animator>();
         sr = GetComponentInChildren<SpriteRenderer>();
+
+        dustFx = GetComponentInChildren<ParticleSystem>();
     }
 
 
     void Start()
     {
+
+        UpdateSkin();
+
         // 초기 상태 = idleState
         stateMachine.Initialize(idleState);
 
@@ -100,10 +110,12 @@ public class Player : MonoBehaviour
 
     public void AnimationTrigger() => stateMachine.currentState.AnimationTrigger();
 
-    public void DoubleJump() 
+    public void DoubleJump()
     {
-        if (canDoubleJump && IsGroundDetected() == false) 
+        if (canDoubleJump && IsGroundDetected() == false)
         {
+            AudioManager.instance.PlaySFX(4, true);
+            dustFx.Play();
             SetVelocity(rb.velocity.x, doubleJumpForce);
             canDoubleJump = false;
         }
@@ -168,9 +180,9 @@ public class Player : MonoBehaviour
         Gizmos.color = Color.yellow;
         Gizmos.DrawLine(groundCheck.position,
             new Vector2(groundCheck.position.x, groundCheck.position.y - groundCheckDistance));
-        
+
         Gizmos.color = Color.red;
-        Gizmos.DrawLine(wallCheck.position, 
+        Gizmos.DrawLine(wallCheck.position,
             new Vector2(wallCheck.position.x + wallCheckDistance * facingDir, wallCheck.position.y));
     }
 
@@ -203,4 +215,37 @@ public class Player : MonoBehaviour
     }
 
     #endregion
+
+    #region Skin
+
+    public void UpdateSkin()
+    {
+        SkinManager skinManager = SkinManager.instance;
+
+        if (skinManager == null)
+            return;
+
+        anim.runtimeAnimatorController = animators[skinManager.choosenSkinId];
+    }
+
+    #endregion
+
+    #region FX
+
+    public void PlayDustEffect()
+    {
+        StartCoroutine(DustEffect());
+    }
+
+    private IEnumerator DustEffect()
+    {
+        while (stateMachine.currentState == moveState)
+        {
+            dustFx.Play();
+            yield return new WaitForSeconds(2f); // 딜레이
+        }
+    }
+
+    #endregion
+
 }

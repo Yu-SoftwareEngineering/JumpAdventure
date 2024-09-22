@@ -11,6 +11,7 @@ public class PlayerMoveState : PlayerGroundState
     public override void Enter()
     {
         base.Enter();
+        player.PlayDustEffect();
     }
 
     public override void Update()
@@ -25,9 +26,7 @@ public class PlayerMoveState : PlayerGroundState
         {
             stateMachine.ChangeState(player.idleState);
         }
-
     }
-
 
     public override void Exit()
     {

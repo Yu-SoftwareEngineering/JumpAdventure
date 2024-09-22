@@ -10,6 +10,7 @@ public class PlayerStunnedState : PlayerState
 
     public override void Enter()
     {
+        AudioManager.instance.PlaySFX(7);
         base.Enter();
 
         // 상태 타이머 = 스턴 시간으로 설정
