@@ -14,6 +14,7 @@ public class Trap_FallingPlatform : MonoBehaviour
     private int wayPointIndex = 0;
 
     private bool delete = false;
+    private bool falling = false;
 
     [Header("Respawn info")]
     [SerializeField] private GameObject copyPrefab;
@@ -99,7 +100,8 @@ public class Trap_FallingPlatform : MonoBehaviour
         if (player != null)
         {
             StepOn_Impact();
-            StartCoroutine(Falling());
+            if(falling == false)
+                StartCoroutine(Falling());
         }
     }
 
@@ -114,6 +116,8 @@ public class Trap_FallingPlatform : MonoBehaviour
     // ÇÃ·§Æû ÇÏ°­ 
     private IEnumerator Falling()
     {
+        falling = true;
+
         float randomSeconds = Random.Range(0.5f, 2.0f);
         yield return new WaitForSeconds(randomSeconds);
         // Collider ÄÄÆ÷³ÍÆ®¸¦ °¡Á®¿È
