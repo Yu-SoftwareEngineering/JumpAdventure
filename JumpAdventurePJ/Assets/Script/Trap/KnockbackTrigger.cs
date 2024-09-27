@@ -12,6 +12,10 @@ public class KnockbackTrigger : MonoBehaviour
         {
             player.canKnockback = true;
 
+            // Hp 감소 
+            UI_InGame.instance.DamageToHp(1);
+
+
             // 넉백 방향 전달
             if (player.transform.position.x < transform.position.x)
             {

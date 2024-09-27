@@ -20,6 +20,7 @@ public class FinishPoint : MonoBehaviour
                 }
 
                 anim.SetTrigger("Active");
+                GameManager.instance.hp = 100;
                 AudioManager.instance.PlaySFX(2);
                 Debug.Log(" Level is Finished ");
                 GameManager.instance.LevelFinished();

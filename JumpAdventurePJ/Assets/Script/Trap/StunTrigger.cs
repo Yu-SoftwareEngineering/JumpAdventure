@@ -12,6 +12,9 @@ public class StunTrigger : MonoBehaviour
             player.canStun = true;
             player.canKnockback = true;
 
+            // Hp 감소 
+            UI_InGame.instance.DamageToHp(2);
+
             // 넉백 방향 전달
             if (player.transform.position.x < transform.position.x)
             {

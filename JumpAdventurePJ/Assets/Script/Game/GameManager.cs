@@ -24,10 +24,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int currentLevelIndex;
     private int nexLevelIndex;
     [SerializeField] private float levelTimer;
+    [SerializeField] public int hp;
+    [SerializeField] public int totalHp;
 
     private void Awake()
     {
-        // instance ????? ?????? ???????? ??? ??.
+        //  instance가 한개만 존재하도록 하는 로직
         if (instance == null)
         {
             instance = this;
@@ -44,6 +46,9 @@ public class GameManager : MonoBehaviour
         currentLevelIndex = SceneManager.GetActiveScene().buildIndex;
         nexLevelIndex = currentLevelIndex + 1;
 
+        // HP 설정
+        hp = totalHp;
+        UI_InGame.instance.UpdateHpUI(totalHp);
     }
 
     private void Update()
@@ -63,7 +68,7 @@ public class GameManager : MonoBehaviour
         cine.Follow = player.transform;
     }
 
-    // ?????? ??? ??????? ???
+    // 리스폰 위치 업데이트 함수
     public void UpdateRespawnPosition(Transform _newRespawnPoint)
     {
         respawnPoint = _newRespawnPoint;
@@ -121,16 +126,16 @@ public class GameManager : MonoBehaviour
         UI_InGame.instance.fadeEffect.ScreenFade(1, 3f);
         yield return new WaitForSeconds(3f);
 
-        // ?????? ???????? ?????? Bool
+        // 다음 레벨 존재 여부 확인용 bool
         bool noMoreLevels = nexLevelIndex == SceneManager.sceneCountInBuildSettings - 1;
 
-        // TheEnd Scene ???
+        // TheEnd Scene 이동
         if (noMoreLevels)
         {
             SceneManager.LoadScene("TheEnd");
             AudioManager.instance.PlayBGM(6);
         }
-        // ???? Level ???
+        // 인게임 Level 이동
         else
         {
             AudioManager.instance.PlayBGM(nexLevelIndex-1);
