@@ -1850,6 +1850,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2126954998}
     - target: {fileID: 7112475588026911143, guid: 9b51f6f9aad3dba40aaeb18379509482, type: 3}
+      propertyPath: totalHp
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7112475588026911143, guid: 9b51f6f9aad3dba40aaeb18379509482, type: 3}
       propertyPath: respawnPoint
       value: 
       objectReference: {fileID: 2075544900}

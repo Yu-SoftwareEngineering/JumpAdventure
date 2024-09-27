@@ -12,6 +12,9 @@ public class PlayerDeadState : PlayerState
     {
         base.Enter();
 
+        // HP 3 감소
+        UI_InGame.instance.DamageToHp(3);
+
         // 0.9초 후 State 종료를 위해 설정
         stateTimer = 0.9f;
 
