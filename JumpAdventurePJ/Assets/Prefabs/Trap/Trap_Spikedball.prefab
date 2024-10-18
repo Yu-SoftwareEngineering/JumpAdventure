@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6586374248044426783}
   - component: {fileID: 3994436524802040596}
+  - component: {fileID: 5769555035169388538}
   - component: {fileID: 9054729365473204934}
   - component: {fileID: 667101303170983014}
-  - component: {fileID: 8630157330389978186}
   m_Layer: 0
   m_Name: Spiked Ball
   m_TagString: Untagged
@@ -90,6 +90,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5769555035169388538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 700120150577040040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1d2e5067124948429355ae32ac0b698, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 667101303170983014}
+  pushForce: -5
+  fixForce: 0
 --- !u!58 &9054729365473204934
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -153,18 +168,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!114 &8630157330389978186
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 700120150577040040}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ff998ce1fe9c9a4b8b6dabb5018cc77, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1435854559791146221
 GameObject:
   m_ObjectHideFlags: 0
@@ -316,7 +319,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7298968990457403587}
-  - component: {fileID: 7665752335952613652}
   m_Layer: 0
   m_Name: Trap_Spikedball
   m_TagString: Untagged
@@ -343,20 +345,6 @@ Transform:
   - {fileID: 6586374248044426783}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7665752335952613652
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1697409354406471228}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1d2e5067124948429355ae32ac0b698, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rb: {fileID: 667101303170983014}
-  pushForce: -5
 --- !u!1 &4920707625714175433
 GameObject:
   m_ObjectHideFlags: 0

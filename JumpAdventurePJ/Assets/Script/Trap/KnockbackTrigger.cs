@@ -3,7 +3,7 @@ using UnityEngine;
 public class KnockbackTrigger : MonoBehaviour
 {
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
 
         Player player = collision.GetComponent<Player>();

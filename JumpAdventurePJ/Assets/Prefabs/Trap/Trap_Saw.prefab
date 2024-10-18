@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 4662428773585738573}
   - component: {fileID: 118730207836983450}
   - component: {fileID: 6115789885906646682}
-  - component: {fileID: 4138071422708632127}
   - component: {fileID: 8970012299542563610}
   m_Layer: 0
   m_Name: Trap_Saw
@@ -142,18 +141,6 @@ MonoBehaviour:
   moveSpeed: 1
   wayPoint:
   - {fileID: 0}
---- !u!114 &4138071422708632127
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3240623023474057749}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 415912f7ecc3bdd46a692e14b74c1a44, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!95 &8970012299542563610
 Animator:
   serializedVersion: 7

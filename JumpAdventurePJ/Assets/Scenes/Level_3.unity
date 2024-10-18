@@ -2810,10 +2810,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7665752335952613652, guid: 82964dbec6d0c7341b81508d2088f52d, type: 3}
-      propertyPath: pushForce
-      value: -5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3915,6 +3911,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Trap_Spikedball
       objectReference: {fileID: 0}
+    - target: {fileID: 5769555035169388538, guid: 82964dbec6d0c7341b81508d2088f52d, type: 3}
+      propertyPath: pushForce
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7298968990457403587, guid: 82964dbec6d0c7341b81508d2088f52d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.4099998
@@ -3954,10 +3954,6 @@ PrefabInstance:
     - target: {fileID: 7298968990457403587, guid: 82964dbec6d0c7341b81508d2088f52d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7665752335952613652, guid: 82964dbec6d0c7341b81508d2088f52d, type: 3}
-      propertyPath: pushForce
-      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
