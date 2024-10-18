@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8109691770827859277}
   - component: {fileID: 1791757758538466851}
   - component: {fileID: 1932465692932850005}
-  - component: {fileID: 7754165583133936269}
+  - component: {fileID: 3891938278956333941}
   m_Layer: 0
   m_Name: Trap_Spike
   m_TagString: Untagged
@@ -125,7 +125,7 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: -0.01, y: -0.35}
   m_Radius: 0.38
---- !u!114 &7754165583133936269
+--- !u!114 &3891938278956333941
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -134,6 +134,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 3562343809393426319}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 415912f7ecc3bdd46a692e14b74c1a44, type: 3}
+  m_Script: {fileID: 11500000, guid: 7d28f2ce87417ba448753bb348e6ed6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

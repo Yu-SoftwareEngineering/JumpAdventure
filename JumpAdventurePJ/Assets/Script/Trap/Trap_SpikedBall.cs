@@ -2,7 +2,7 @@ using NUnit.Framework.Constraints;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
-public class Trap_SpikedBall : MonoBehaviour
+public class Trap_SpikedBall : StunTrigger
 {
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private float pushForce;
@@ -11,9 +11,9 @@ public class Trap_SpikedBall : MonoBehaviour
     private void Start() 
     {
         fixForce = Mathf.Abs(pushForce / 2000);
-        Debug.Log(fixForce);
         rb.AddForce( new Vector2(pushForce , 0), ForceMode2D.Impulse);
     }
+
 
     private void FixedUpdate()
     {
@@ -27,5 +27,11 @@ public class Trap_SpikedBall : MonoBehaviour
             int direction = 1;
             rb.AddForce(new Vector2(fixForce * direction, 0), ForceMode2D.Impulse);
         }
+    }
+
+
+    protected override void OnTriggerEnter2D(Collider2D collision)
+    {
+        base.OnTriggerEnter2D(collision);
     }
 }
