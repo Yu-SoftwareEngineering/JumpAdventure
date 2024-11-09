@@ -24,7 +24,7 @@ public class UI_LevelButton : MonoBehaviour
     {
         float timerValue = PlayerPrefs.GetFloat("Level_" + levelIndex + "BestTime", 999);
         Debug.Log(timerValue); // 정상적으로 출력됨
-        return "Best Time : " + timerValue.ToString("00") + "s";
+        return "Best Time : " + timerValue.ToString("00") + " s";
     }
 
 
