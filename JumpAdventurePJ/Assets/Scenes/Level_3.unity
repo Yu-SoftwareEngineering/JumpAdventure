@@ -2678,7 +2678,7 @@ PrefabInstance:
       objectReference: {fileID: 615887368}
     - target: {fileID: 7112475588026911143, guid: 9b51f6f9aad3dba40aaeb18379509482, type: 3}
       propertyPath: totalHp
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7112475588026911143, guid: 9b51f6f9aad3dba40aaeb18379509482, type: 3}
       propertyPath: respawnPoint
@@ -3337,7 +3337,7 @@ Transform:
   m_GameObject: {fileID: 1216791913}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.4853897, y: -1.2814603, z: -10}
+  m_LocalPosition: {x: -2.4792986, y: -1.2814603, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
