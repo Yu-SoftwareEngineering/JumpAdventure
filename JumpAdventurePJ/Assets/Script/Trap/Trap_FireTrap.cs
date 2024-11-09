@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class Trap_FireTrap : MonoBehaviour
+public class Trap_FireTrap : KnockbackTrigger
 {
     private Animator anim;
     public float fireOffTime = 3;
@@ -33,5 +33,9 @@ public class Trap_FireTrap : MonoBehaviour
         transform.parent.gameObject.GetComponent<BoxCollider2D>().enabled = true;
     }
 
+    protected override void OnTriggerEnter2D(Collider2D collision)
+    {
+        base.OnTriggerEnter2D(collision);
+    }
 }
 

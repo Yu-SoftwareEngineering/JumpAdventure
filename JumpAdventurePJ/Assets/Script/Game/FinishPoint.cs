@@ -12,7 +12,7 @@ public class FinishPoint : MonoBehaviour
 
         if (player != null )
         {
-            if(GameManager.instance.fruitsCollected >= GameManager.instance.totalFruits/2)
+            if (GameManager.instance.fruitsCollected >= Mathf.Round(GameManager.instance.totalFruits / 2f))
             {
                 if (levelClear)
                 {
@@ -20,6 +20,7 @@ public class FinishPoint : MonoBehaviour
                 }
 
                 anim.SetTrigger("Active");
+                GameManager.instance.hp = 100;
                 AudioManager.instance.PlaySFX(2);
                 Debug.Log(" Level is Finished ");
                 GameManager.instance.LevelFinished();

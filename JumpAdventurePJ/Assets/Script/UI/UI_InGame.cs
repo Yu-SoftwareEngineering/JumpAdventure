@@ -11,7 +11,9 @@ public class UI_InGame : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI timerText;
     [SerializeField] private TextMeshProUGUI fruitText;
+    [SerializeField] private TextMeshProUGUI hpText;
     [SerializeField] private GameObject pauseUI;
+    private bool canReduceHP = true;
 
     private void Awake()
     {
@@ -83,5 +85,38 @@ public class UI_InGame : MonoBehaviour
 
         SceneManager.LoadScene("MainMenu");
     }
+
+    #region Hp 
+
+    public void UpdateHpUI(int hp)
+    {
+        hpText.text = hp + "/" + GameManager.instance.totalHp;
+    }
+
+    public void DamageToHp(int damage) => StartCoroutine(DamageToHpLogic(damage));
+
+
+    public IEnumerator DamageToHpLogic(int damage)
+    {
+        if(canReduceHP)
+        {
+            GameManager.instance.hp -= damage;
+        }
+        canReduceHP = false;
+
+        UpdateHpUI(GameManager.instance.hp);
+
+        if (GameManager.instance.hp <= 0)
+        {
+            Pause();
+            GoToMainMenu();
+        }
+
+        yield return new WaitForSeconds(0.4f);
+        canReduceHP=true;
+    }
+
+    #endregion
+
 
 }

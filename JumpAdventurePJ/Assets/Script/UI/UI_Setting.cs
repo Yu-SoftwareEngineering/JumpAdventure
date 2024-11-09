@@ -26,8 +26,8 @@ public class UI_Setting : MonoBehaviour
 
     private void OnEnable()
     {
-        sfxSlider.value = PlayerPrefs.GetFloat(sfxParameter, 0.6f);
-        bgmSlider.value = PlayerPrefs.GetFloat(bgmParameter, 0.6f);
+        sfxSlider.value = PlayerPrefs.GetFloat(sfxParameter, 0.4f);
+        bgmSlider.value = PlayerPrefs.GetFloat(bgmParameter, 0.4f);
     }
     
     // SFX 슬라이더 값 조정

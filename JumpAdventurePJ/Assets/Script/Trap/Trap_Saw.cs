@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Trap_Saw : MonoBehaviour
+public class Trap_Saw : KnockbackTrigger
 {
     [SerializeField] private float moveSpeed;
     [SerializeField] private Transform[] wayPoint;
@@ -41,5 +41,10 @@ public class Trap_Saw : MonoBehaviour
 
         }
     }
+    protected override void OnTriggerEnter2D(Collider2D collision)
+    {
+        base.OnTriggerEnter2D(collision);
+    }
+
 }
 

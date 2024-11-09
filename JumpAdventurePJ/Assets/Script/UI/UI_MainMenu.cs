@@ -48,4 +48,15 @@ public class UI_MainMenu : MonoBehaviour
         setting.sfxSlider.value = PlayerPrefs.GetFloat(setting.sfxParameter, 0.6f);
         setting.bgmSlider.value = PlayerPrefs.GetFloat(setting.bgmParameter, 0.6f);
     }
+
+    public void QuitGame()
+    {
+        #if UNITY_EDITOR
+                // 유니티 에디터에서 실행 중일 때
+                UnityEditor.EditorApplication.isPlaying = false;
+        #else
+                    // 빌드된 게임에서 실행 중일 때
+                    Application.Quit();
+        #endif
+    }
 }
