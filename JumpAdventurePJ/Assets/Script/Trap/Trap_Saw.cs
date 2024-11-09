@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Trap_Saw : StunTrigger
+public class Trap_Saw : KnockbackTrigger
 {
     [SerializeField] private float moveSpeed;
     [SerializeField] private Transform[] wayPoint;

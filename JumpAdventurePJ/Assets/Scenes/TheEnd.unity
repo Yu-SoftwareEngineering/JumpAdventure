@@ -279,15 +279,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: Thanks to Play
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: cdfb6ba200b62ed46819694d70a4437e, type: 2}
-  m_sharedMaterial: {fileID: -91572077461226718, guid: cdfb6ba200b62ed46819694d70a4437e, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: abe16bbfa897b1d449bc4a61dcb1e861, type: 2}
+  m_sharedMaterial: {fileID: -3614977455484540881, guid: abe16bbfa897b1d449bc4a61dcb1e861, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4289264425
-  m_fontColor: {r: 0.16167314, g: 0.98490566, b: 0.6584385, a: 1}
+    rgba: 4285071104
+  m_fontColor: {r: 0, g: 1, b: 0.40860224, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -304,8 +304,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 65
-  m_fontSizeBase: 65
+  m_fontSize: 60
+  m_fontSizeBase: 60
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -415,15 +415,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: cdfb6ba200b62ed46819694d70a4437e, type: 2}
-  m_sharedMaterial: {fileID: -91572077461226718, guid: cdfb6ba200b62ed46819694d70a4437e, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: abe16bbfa897b1d449bc4a61dcb1e861, type: 2}
+  m_sharedMaterial: {fileID: -3614977455484540881, guid: abe16bbfa897b1d449bc4a61dcb1e861, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
     rgba: 4287289599
-  m_fontColor: {r: 1, g: 0.8451349, b: 0.5415094, a: 1}
+  m_fontColor: {r: 0, g: 0, b: 0, a: 0.9019608}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -440,8 +440,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 65
-  m_fontSizeBase: 65
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -553,15 +553,15 @@ MonoBehaviour:
     => Land of peach blossoms\nLevel_3 => RienVillage\nLevel_4 => Noname\nLevel_5
     => MemoryOfSunset\nEnding => FullMoonParty
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: cdfb6ba200b62ed46819694d70a4437e, type: 2}
-  m_sharedMaterial: {fileID: -91572077461226718, guid: cdfb6ba200b62ed46819694d70a4437e, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: abe16bbfa897b1d449bc4a61dcb1e861, type: 2}
+  m_sharedMaterial: {fileID: -3614977455484540881, guid: abe16bbfa897b1d449bc4a61dcb1e861, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 3858759680
+  m_fontColor: {r: 0, g: 0, b: 0, a: 0.9019608}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -578,8 +578,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 60
-  m_fontSizeBase: 60
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1339,8 +1339,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: BGM - In MapleStory
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: cdfb6ba200b62ed46819694d70a4437e, type: 2}
-  m_sharedMaterial: {fileID: -91572077461226718, guid: cdfb6ba200b62ed46819694d70a4437e, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: abe16bbfa897b1d449bc4a61dcb1e861, type: 2}
+  m_sharedMaterial: {fileID: -3614977455484540881, guid: abe16bbfa897b1d449bc4a61dcb1e861, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1364,8 +1364,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 65
-  m_fontSizeBase: 65
+  m_fontSize: 60
+  m_fontSizeBase: 60
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1480,15 +1480,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: The End
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: cdfb6ba200b62ed46819694d70a4437e, type: 2}
-  m_sharedMaterial: {fileID: -91572077461226718, guid: cdfb6ba200b62ed46819694d70a4437e, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: abe16bbfa897b1d449bc4a61dcb1e861, type: 2}
+  m_sharedMaterial: {fileID: -3614977455484540881, guid: abe16bbfa897b1d449bc4a61dcb1e861, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4279501323
+  m_fontColor: {r: 0.042837266, g: 0.006429322, b: 0.07924521, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1505,8 +1505,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 80
-  m_fontSizeBase: 80
+  m_fontSize: 60
+  m_fontSizeBase: 60
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1899,15 +1899,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: cdfb6ba200b62ed46819694d70a4437e, type: 2}
-  m_sharedMaterial: {fileID: -91572077461226718, guid: cdfb6ba200b62ed46819694d70a4437e, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: abe16bbfa897b1d449bc4a61dcb1e861, type: 2}
+  m_sharedMaterial: {fileID: -3614977455484540881, guid: abe16bbfa897b1d449bc4a61dcb1e861, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
     rgba: 4284374002
-  m_fontColor: {r: 0.94716984, g: 0.35563537, b: 0.3687407, a: 1}
+  m_fontColor: {r: 0, g: 0, b: 0, a: 0.9019608}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1924,8 +1924,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 65
-  m_fontSizeBase: 65
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2035,15 +2035,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: Made By Yu-Software Engineering
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: cdfb6ba200b62ed46819694d70a4437e, type: 2}
-  m_sharedMaterial: {fileID: -91572077461226718, guid: cdfb6ba200b62ed46819694d70a4437e, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: abe16bbfa897b1d449bc4a61dcb1e861, type: 2}
+  m_sharedMaterial: {fileID: -3614977455484540881, guid: abe16bbfa897b1d449bc4a61dcb1e861, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4287289599
-  m_fontColor: {r: 1, g: 0.8451349, b: 0.5415094, a: 1}
+    rgba: 4114328319
+  m_fontColor: {r: 1, g: 0.6683841, b: 0.2320754, a: 0.9607843}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2060,8 +2060,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 65
-  m_fontSizeBase: 65
+  m_fontSize: 60
+  m_fontSizeBase: 60
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

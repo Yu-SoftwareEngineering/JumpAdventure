@@ -12,7 +12,7 @@ public class FinishPoint : MonoBehaviour
 
         if (player != null )
         {
-            if(GameManager.instance.fruitsCollected >= GameManager.instance.totalFruits/2)
+            if (GameManager.instance.fruitsCollected >= Mathf.Round(GameManager.instance.totalFruits / 2f))
             {
                 if (levelClear)
                 {
